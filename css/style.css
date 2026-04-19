@@ -84,3 +84,13 @@ transition:all .3s ease;
 .enter-btn:hover{
 transform:translateY(-3px);
 }
+
+
+@media (min-width: 1024px){
+
+.hero{
+  background-size: cover;
+  background-position: center 20%;
+}
+
+}
