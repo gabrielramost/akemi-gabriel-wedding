@@ -39,3 +39,14 @@ Asistiremos: ${personas} persona(s).`;
 
   window.open(url, "_blank");
 }
+
+function mostrarCuenta(){
+  const cuenta = document.getElementById("cuenta");
+
+  if(cuenta.style.display === "none"){
+    cuenta.style.display = "block";
+  } else {
+    cuenta.style.display = "none";
+  }
+}
+
