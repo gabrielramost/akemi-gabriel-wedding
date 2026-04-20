@@ -1,4 +1,7 @@
+/* ----------------------------- */
 /* RESET */
+/* ----------------------------- */
+
 *{
 margin:0;
 padding:0;
@@ -8,9 +11,14 @@ box-sizing:border-box;
 body{
 font-family:'Playfair Display', serif;
 overflow-x:hidden;
+background:#0f0f0f;
+color:#f8f6f2;
 }
 
+
+/* ----------------------------- */
 /* HERO */
+/* ----------------------------- */
 
 .hero{
 
@@ -30,7 +38,7 @@ color:white;
 
 }
 
-/* overlay oscuro elegante */
+/* overlay */
 
 .hero::before{
 content:"";
@@ -85,7 +93,10 @@ transition:all .3s ease;
 transform:translateY(-3px);
 }
 
+
+/* ----------------------------- */
 /* INTRO */
+/* ----------------------------- */
 
 .intro{
 position:relative;
@@ -96,12 +107,9 @@ align-items:center;
 justify-content:center;
 
 background:#0f0f0f;
-color:#f8f6f2;
 
 overflow:hidden;
 }
-
-/* imagen de fondo suave */
 
 .intro-bg{
 position:absolute;
@@ -114,11 +122,9 @@ background-image:url("../assets/img/intro.jpg");
 background-size:cover;
 background-position:center;
 
-opacity:0.25;
+opacity:0.18;
 filter:blur(2px) scale(1.05);
 }
-
-/* contenido */
 
 .intro-content{
 position:relative;
@@ -126,9 +132,12 @@ z-index:2;
 max-width:700px;
 padding:20px;
 text-align:center;
-}
 
-/* texto */
+opacity:0;
+transform:translateY(20px);
+animation:fadeUp 1.2s ease forwards;
+animation-delay:0.3s;
+}
 
 .intro-text{
 font-family:'Cormorant Garamond', serif;
@@ -138,24 +147,22 @@ font-style:italic;
 letter-spacing:0.5px;
 }
 
+
+/* ----------------------------- */
 /* DETAILS */
+/* ----------------------------- */
 
 .details{
 background:#0f0f0f;
-color:#f8f6f2;
 padding:100px 20px;
 text-align:center;
 }
-
-/* título */
 
 .details-title{
 font-size:36px;
 letter-spacing:4px;
 margin-bottom:60px;
 }
-
-/* contenedor */
 
 .details-container{
 display:flex;
@@ -164,7 +171,7 @@ gap:40px;
 align-items:center;
 }
 
-/* tarjetas */
+/* tarjeta */
 
 .detail-card{
 background:rgba(255,255,255,0.03);
@@ -178,27 +185,41 @@ backdrop-filter:blur(6px);
 box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 
-/* títulos internos */
-
 .detail-card h3{
 font-size:22px;
-margin-bottom:15px;
+margin-bottom:20px;
 letter-spacing:1px;
 }
 
-/* textos */
+/* líneas con íconos */
 
-.detail-date,
-.detail-time{
-font-size:16px;
-margin-bottom:8px;
-opacity:0.9;
+.detail-line{
+display:flex;
+gap:12px;
+align-items:center;
+justify-content:flex-start;
+margin-bottom:10px;
+text-align:left;
 }
 
-.detail-place{
-margin-top:10px;
-line-height:1.6;
-opacity:0.8;
+.detail-line p{
+margin:0;
+font-size:15px;
+opacity:0.85;
+}
+
+/* SVG ICONOS */
+
+.icon{
+width:18px;
+height:18px;
+
+stroke:rgba(255,255,255,0.85);
+stroke-width:1.5;
+
+fill:none;
+
+flex-shrink:0;
 }
 
 /* botón */
@@ -225,18 +246,9 @@ box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
 
 
-@media (min-width: 1024px){
-  .hero{
-    background-position: center 85%;
-  }
-}
-
-.intro-content{
-opacity:0;
-transform:translateY(20px);
-animation:fadeUp 1.2s ease forwards;
-animation-delay:0.3s;
-}
+/* ----------------------------- */
+/* ANIMACIÓN */
+/* ----------------------------- */
 
 @keyframes fadeUp{
 to{
@@ -245,19 +257,30 @@ transform:translateY(0);
 }
 }
 
-@media (min-width: 1024px){
 
+/* ----------------------------- */
+/* RESPONSIVE */
+/* ----------------------------- */
+
+/* desktop hero ajuste */
+
+@media (min-width:1024px){
+.hero{
+background-position:center 85%;
+}
+}
+
+/* desktop intro ajuste */
+
+@media (min-width:1024px){
 .intro-bg{
-  background-position: center 85%;
+background-position:center 85%;
+}
 }
 
-}
+/* tarjetas en fila */
 
-.intro-bg{
-  opacity:0.18;
-}
-
-@media (min-width: 768px){
+@media (min-width:768px){
 
 .details-container{
 flex-direction:row;
@@ -270,14 +293,20 @@ max-width:320px;
 
 }
 
-.detail-line{
-display:flex;
-gap:10px;
-align-items:center;
-justify-content:center;
-margin-bottom:6px;
+/* mobile texto */
+
+@media (max-width:768px){
+
+.names{
+font-size:48px;
 }
 
-.detail-line span{
-font-size:16px;
+.tagline{
+font-size:20px;
+}
+
+.intro-text{
+font-size:22px;
+}
+
 }
