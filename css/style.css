@@ -446,3 +446,9 @@ text-align:left;
 }
 
 }
+
+.rsvp-form button.secondary{
+background:transparent;
+color:#ddddd9;
+border:1px solid #ddddd9;
+} 
