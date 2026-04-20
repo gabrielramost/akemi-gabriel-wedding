@@ -157,3 +157,15 @@ opacity:1;
 transform:translateY(0);
 }
 }
+
+@media (min-width: 1024px){
+
+.intro-bg{
+  background-position: center 85%;
+}
+
+}
+
+.intro-bg{
+  opacity:0.18;
+}
