@@ -138,6 +138,93 @@ font-style:italic;
 letter-spacing:0.5px;
 }
 
+/* DETAILS */
+
+.details{
+background:#0f0f0f;
+color:#f8f6f2;
+padding:100px 20px;
+text-align:center;
+}
+
+/* título */
+
+.details-title{
+font-size:36px;
+letter-spacing:4px;
+margin-bottom:60px;
+}
+
+/* contenedor */
+
+.details-container{
+display:flex;
+flex-direction:column;
+gap:40px;
+align-items:center;
+}
+
+/* tarjetas */
+
+.detail-card{
+background:rgba(255,255,255,0.03);
+padding:40px 30px;
+border-radius:12px;
+max-width:400px;
+width:100%;
+
+backdrop-filter:blur(6px);
+
+box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+/* títulos internos */
+
+.detail-card h3{
+font-size:22px;
+margin-bottom:15px;
+letter-spacing:1px;
+}
+
+/* textos */
+
+.detail-date,
+.detail-time{
+font-size:16px;
+margin-bottom:8px;
+opacity:0.9;
+}
+
+.detail-place{
+margin-top:10px;
+line-height:1.6;
+opacity:0.8;
+}
+
+/* botón */
+
+.map-btn{
+display:inline-block;
+margin-top:20px;
+padding:10px 24px;
+
+border-radius:25px;
+
+background:#ddddd9;
+color:#111;
+
+text-decoration:none;
+font-size:14px;
+
+transition:all .3s ease;
+}
+
+.map-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,0.3);
+}
+
+
 @media (min-width: 1024px){
   .hero{
     background-position: center 85%;
@@ -168,4 +255,29 @@ transform:translateY(0);
 
 .intro-bg{
   opacity:0.18;
+}
+
+@media (min-width: 768px){
+
+.details-container{
+flex-direction:row;
+justify-content:center;
+}
+
+.detail-card{
+max-width:320px;
+}
+
+}
+
+.detail-line{
+display:flex;
+gap:10px;
+align-items:center;
+justify-content:center;
+margin-bottom:6px;
+}
+
+.detail-line span{
+font-size:16px;
 }
