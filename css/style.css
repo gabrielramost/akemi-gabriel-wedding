@@ -427,6 +427,69 @@ transform:translateY(-2px);
 }
 
 /* ----------------------------- */
+/* CLOSING */
+/* ----------------------------- */
+
+.closing{
+position:relative;
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+color:white;
+overflow:hidden;
+}
+
+/* fondo */
+
+.closing-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background-image:url("../assets/img/closing.jpg");
+background-size:cover;
+background-position:center bottom;
+
+filter:brightness(0.6);
+}
+
+/* contenido */
+
+.closing-content{
+position:relative;
+z-index:2;
+
+max-width:600px;
+padding:20px;
+}
+
+.closing-content h2{
+font-family:'Cormorant Garamond', serif;
+font-size:42px;
+margin-bottom:15px;
+letter-spacing:2px;
+}
+
+.closing-content p{
+font-size:18px;
+opacity:0.85;
+}
+
+.names-final{
+margin-top:40px;
+font-family:'Great Vibes', cursive;
+font-size:48px;
+}
+
+
+/* ----------------------------- */
 /* ANIMACIÓN */
 /* ----------------------------- */
 
