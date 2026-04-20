@@ -204,7 +204,38 @@
 
 <!-- RSVP -->
 <section class="rsvp">
-  <h2>Confirma tu asistencia</h2>
+
+  <h2 class="rsvp-title">Confirma tu asistencia</h2>
+
+  <p class="rsvp-text">
+    Hemos reservado <strong>2 asientos</strong> en tu honor.
+  </p>
+
+  <div class="rsvp-form">
+
+    <input type="text" id="nombre" placeholder="Tu nombre">
+
+    <select id="asistencia">
+      <option value="">¿Asistirás?</option>
+      <option value="Sí asistiré">Sí, asistiré</option>
+      <option value="No podré asistir">No podré asistir</option>
+    </select>
+
+    <select id="personas">
+      <option value="1">1 persona</option>
+      <option value="2">2 personas</option>
+    </select>
+
+    <button onclick="enviarWhatsApp('novia')">
+      Confirmar con la novia
+    </button>
+
+    <button onclick="enviarWhatsApp('novio')" class="secondary">
+      Confirmar con el novio
+    </button>
+
+  </div>
+
 </section>
 
 <!-- REGALOS -->
