@@ -407,6 +407,25 @@ font-size:14px;
 box-shadow:0 20px 60px rgba(0,0,0,0.4);
 }
 
+.gift-btn{
+margin-top:20px;
+padding:12px 28px;
+
+border:none;
+border-radius:30px;
+
+background:#ddddd9;
+color:#111;
+
+cursor:pointer;
+
+transition:all .3s ease;
+}
+
+.gift-btn:hover{
+transform:translateY(-2px);
+}
+
 /* ----------------------------- */
 /* ANIMACIÓN */
 /* ----------------------------- */
