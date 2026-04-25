@@ -1,5 +1,3 @@
-<!-- HEAD -->
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -11,27 +9,25 @@
 
 <link rel="stylesheet" href="css/style.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
-  
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Great+Vibes&family=Cormorant+Garamond&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
 <!-- HERO -->
-<section class="hero">
-
+<header class="hero">
   <div class="hero-overlay">
     <h1 class="names">Akemi & Gabriel</h1>
     <p class="tagline">¡Nos casamos!</p>
-
     <a href="#details" class="enter-btn">Ver invitación</a>
   </div>
+</header>
 
-</section>
-  
+<main>
+
 <!-- INTRO -->
-<section class="intro">
-
+<section class="intro" id="intro">
   <div class="intro-bg"></div>
 
   <div class="intro-content">
@@ -40,11 +36,9 @@
       Acompáñanos a celebrar el inicio de nuestra historia juntos.
     </p>
   </div>
-
 </section>
 
 <!-- DETALLES -->
-
 <section class="details" id="details">
 
   <h2 class="details-title">Detalles</h2>
@@ -122,8 +116,7 @@
 </section>
 
 <!-- TIMELINE -->
-<section class="timeline">
-
+<section class="timeline" id="timeline">
   <h2 class="timeline-title">El gran día</h2>
 
   <div class="timeline-container">
@@ -201,11 +194,10 @@
     </div>
 
   </div>
-
 </section>
 
 <!-- RSVP -->
-<section class="rsvp">
+<section class="rsvp" id="rsvp">
 
   <h2 class="rsvp-title">Confirma tu asistencia</h2>
 
@@ -213,36 +205,38 @@
     Hemos reservado <strong>2 asientos</strong> en tu honor.
   </p>
 
-  <div class="rsvp-form">
+  <form class="rsvp-form">
 
+    <label>Nombre</label>
     <input type="text" id="nombre" placeholder="Tu nombre">
 
+    <label>Asistencia</label>
     <select id="asistencia">
       <option value="">¿Asistirás?</option>
       <option value="Sí asistiré">Sí, asistiré</option>
       <option value="No podré asistir">No podré asistir</option>
     </select>
 
+    <label>Número de personas</label>
     <select id="personas">
       <option value="1">1 persona</option>
       <option value="2">2 personas</option>
     </select>
 
-    <button onclick="enviarWhatsApp('novia')">
+    <button type="button" onclick="enviarWhatsApp('novia')">
       Confirmar con la novia
     </button>
 
-    <button onclick="enviarWhatsApp('novio')" class="secondary">
+    <button type="button" onclick="enviarWhatsApp('novio')" class="secondary">
       Confirmar con el novio
     </button>
 
-  </div>
+  </form>
 
 </section>
 
 <!-- REGALOS -->
-  
-<section class="gifts">
+<section class="gifts" id="gifts">
 
   <h2 class="gifts-title">Regalos</h2>
 
@@ -254,12 +248,10 @@
       Si deseas tener un detalle con nosotros, puedes ayudarnos a construir nuestro futuro juntos.
     </p>
 
-    <!-- BOTÓN -->
-    <button class="gift-btn" onclick="mostrarCuenta()">
+    <button class="gift-btn" type="button" onclick="mostrarCuenta()">
       Ver datos bancarios
     </button>
 
-    <!-- CAJA OCULTA -->
     <div class="bank-box" id="cuenta" style="display:none;">
       <p><strong>Banco:</strong> BCP</p>
       <p><strong>Cuenta:</strong> XXXX-XXXX-XXXX</p>
@@ -271,26 +263,25 @@
 
 </section>
 
-<section class="closing">
+</main>
+
+<!-- CIERRE -->
+<footer class="closing">
 
   <div class="closing-bg"></div>
 
   <div class="closing-content">
     <h2>Te esperamos</h2>
-
-    <p>
-      para celebrar juntos este día tan especial.
-    </p>
+    <p>para celebrar juntos este día tan especial.</p>
 
     <p class="names-final">
       Akemi & Gabriel
     </p>
   </div>
 
-</section>
+</footer>
 
-  
 <script src="js/main.js"></script>
-  
+
 </body>
 </html>
