@@ -189,8 +189,10 @@ font-weight:500;
 
 .intro-text-block span{
 font-family:'Great Vibes', cursive;
-font-size:64px;
+font-size:72px;
 color:#86895D;
+display:block;
+margin-top:10px;
 }
 
 .intro-text-block p{
