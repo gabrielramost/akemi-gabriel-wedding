@@ -279,7 +279,7 @@
       </h2>
 
       <p>
-        Hemos reservado <strong id="cupos">—</strong> en tu honor.<br>
+        Hemos reservado <strong id="cupos">0 asientos</strong> en tu honor.<br>
         Por favor confirma tu asistencia.
       </p>
     </div>
@@ -291,14 +291,13 @@
         type="text" 
         id="busqueda" 
         placeholder="Busca tu nombre"
-        oninput="buscarInvitado()"
-      >
+        >
 
       <div id="resultado" class="resultado"></div>
 
       <div class="rsvp-buttons">
-        <button onclick="confirmar('novia')">Confirmar con la novia</button>
-        <button class="secondary" onclick="confirmar('novio')">Confirmar con el novio</button>
+        <button type="button" onclick="confirmar('novia')">Confirmar con la novia</button>
+        <button type="button" class="secondary" onclick="confirmar('novio')">Confirmar con el novio</button>
       </div>
 
     </div>
