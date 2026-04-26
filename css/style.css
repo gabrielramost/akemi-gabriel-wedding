@@ -533,7 +533,7 @@ background-position:center;
 min-height:100vh;
 
 display:flex;
-align-items:center;
+align-items:flex-end;
 
 padding:140px 20px;
 color:#272B00;
@@ -954,7 +954,7 @@ background-position:center;
 @media (min-width:1024px){
 
   .rsvp{
-    background-position: center 85%;
+    background-position: center bottom;
   }
 
 }
