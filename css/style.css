@@ -516,6 +516,90 @@ gap:8px;
 }
 
 /* ----------------------------- */
+/* RSVP */
+/* ----------------------------- */
+
+.rsvp{
+background:#F8FBCA;
+padding:120px 20px;
+color:#272B00;
+}
+
+.rsvp-container{
+max-width:1100px;
+margin:0 auto;
+display:flex;
+justify-content:space-between;
+gap:60px;
+align-items:center;
+}
+
+/* izquierda */
+
+.rsvp-left h2{
+font-size:48px;
+font-weight:500;
+}
+
+.rsvp-left span{
+display:block;
+font-family:'Great Vibes', cursive;
+font-size:64px;
+color:#86895D;
+}
+
+.rsvp-left p{
+margin-top:20px;
+font-size:18px;
+}
+
+/* derecha */
+
+.rsvp-right input{
+width:100%;
+padding:14px;
+border-radius:8px;
+border:none;
+margin-bottom:20px;
+}
+
+/* resultado */
+
+.resultado{
+margin-bottom:20px;
+}
+
+.resultado h3{
+font-size:20px;
+}
+
+.resultado p{
+opacity:0.7;
+}
+
+/* botones */
+
+.rsvp-buttons{
+display:flex;
+gap:15px;
+}
+
+.rsvp-buttons button{
+padding:12px 24px;
+border-radius:30px;
+border:none;
+background:#272B00;
+color:#F8FBCA;
+cursor:pointer;
+}
+
+.rsvp-buttons .secondary{
+background:transparent;
+border:1px solid #272B00;
+color:#272B00;
+}
+
+/* ----------------------------- */
 /* GIFTS */
 /* ----------------------------- */
 
