@@ -68,7 +68,6 @@ function mostrarError(texto){
   }, 3000);
 }
 
-
 // -----------------------------
 // MOSTRAR CUENTA (ANIMADO)
 // -----------------------------
