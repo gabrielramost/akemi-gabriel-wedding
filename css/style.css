@@ -549,11 +549,12 @@ left:0;
 width:100%;
 height:100%;
 
-/* MÁS TRANSPARENCIA → deja ver la foto */
 background:linear-gradient(
-rgba(248,251,202,0.45),
-rgba(248,251,202,0.25)
+rgba(248,251,202,0.55),
+rgba(248,251,202,0.35)
 );
+
+backdrop-filter: blur(2px);
 }
 
 .rsvp-container{
