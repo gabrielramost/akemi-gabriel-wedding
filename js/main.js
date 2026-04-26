@@ -21,36 +21,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
 let invitadoSeleccionado = null;
 
-function buscarInvitado(){
+const input = document.querySelector(".rsvp-right input");
+const resultado = document.getElementById("resultado");
 
-  const input = document.getElementById("busqueda").value.toLowerCase();
-  const resultado = document.getElementById("resultado");
+input.addEventListener("input", () => {
+  const valor = input.value.toLowerCase();
 
-  if(input.length < 2){
+  const invitado = invitados.find(i =>
+    i.nombre.toLowerCase().includes(valor)
+  );
+
+  if (!invitado) {
     resultado.innerHTML = "";
     return;
   }
 
-  const match = invitados.find(inv =>
-    inv.nombre.toLowerCase().includes(input)
-  );
+  // generar lista de asistentes
+  let html = `
+    <h3>${invitado.nombre}</h3>
+    <p>Tienes ${invitado.pases} pase(s)</p>
+    <div class="asistentes">
+  `;
 
-  if(match){
+  // titular (siempre incluido)
+  html += `
+    <label>
+      <input type="checkbox" checked disabled />
+      ${invitado.nombre}
+    </label>
+  `;
 
-    invitadoSeleccionado = match;
-
-    document.getElementById("cupos").innerText = match.invitados + " asiento(s)";
-
-    resultado.innerHTML = `
-      <h3>${match.nombre}</h3>
-      <p>Tienes ${match.invitados} pase(s)</p>
-      ${match.acompanante ? `<p>Acompañante: ${match.acompanante}</p>` : ""}
+  // acompañantes reales
+  invitado.acompanantes.forEach(a => {
+    html += `
+      <label>
+        <input type="checkbox" class="acompanante" checked />
+        ${a}
+      </label>
     `;
+  });
 
-  } else {
-    resultado.innerHTML = `<p>No encontramos tu nombre</p>`;
+  // espacios libres
+  const faltantes = invitado.pases - (1 + invitado.acompanantes.length);
+
+  for (let i = 0; i < faltantes; i++) {
+    html += `
+      <label>
+        <input type="checkbox" class="extra" />
+        Invitado adicional
+      </label>
+    `;
   }
-} 
+
+  html += `</div>`;
+
+  resultado.innerHTML = html;
+});
+
+
 // -----------------------------
 // RSVP WHATSAPP
 // -----------------------------
