@@ -554,3 +554,32 @@ background:transparent;
 color:#ddddd9;
 border:1px solid #ddddd9;
 }
+
+
+/* ----------------------------- */
+/* UX MEJORAS (JS SUPPORT) */
+/* ----------------------------- */
+
+/* mensaje de error RSVP */
+
+.error-msg{
+color:#ffb3b3;
+font-size:13px;
+margin-bottom:10px;
+text-align:left;
+}
+
+/* animación datos bancarios */
+
+.bank-box{
+opacity:0;
+max-height:0;
+overflow:hidden;
+transition:all .4s ease;
+}
+
+.bank-box.visible{
+opacity:1;
+max-height:200px;
+margin-top:20px;
+}
