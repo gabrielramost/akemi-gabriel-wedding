@@ -948,3 +948,11 @@ background-position:center;
 }
 
 }
+
+@media (min-width:1024px){
+
+  .rsvp{
+    background-position:center 80%;
+  }
+
+}
