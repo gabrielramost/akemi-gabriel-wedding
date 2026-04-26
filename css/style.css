@@ -526,7 +526,7 @@ gap:8px;
 .rsvp{
 position:relative;
 
-background-image:url("../assets/img/rsvp.jpg");
+background-image:url("../assets/img/rsvp1.jpg");
 background-size:cover;
 background-position:center;
 
@@ -549,9 +549,11 @@ left:0;
 width:100%;
 height:100%;
 
-background:rgba(248,251,202,0.75); /* tu color oliva claro */
+background:linear-gradient(
+rgba(248,251,202,0.7),
+rgba(248,251,202,0.45)
+);
 }
-
 
 .rsvp-container{
 position:relative;
