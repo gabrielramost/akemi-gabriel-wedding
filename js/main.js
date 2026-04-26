@@ -4,6 +4,29 @@
 let invitadoSeleccionado = null;
 
 
+const invitadosBusqueda = [];
+
+invitados.forEach(inv => {
+
+  // titular
+  invitadosBusqueda.push({
+    nombre: inv.nombre,
+    principal: inv.nombre,
+    pases: inv.pases,
+    acompanantes: inv.acompanantes
+  });
+
+  // acompañantes
+  inv.acompanantes.forEach(a => {
+    invitadosBusqueda.push({
+      nombre: a,
+      principal: inv.nombre,
+      pases: inv.pases,
+      acompanantes: inv.acompanantes
+    });
+  });
+
+});
 // -----------------------------
 // INIT CUANDO DOM ESTÁ LISTO
 // -----------------------------
@@ -67,37 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
 // RENDER INVITADO
 // -----------------------------
 
-html = `
-  <small>Invitación de ${invitado.nombre}</small>
-` + html;
-
-const invitadosBusqueda = [];
-
-invitados.forEach(inv => {
-
-  // titular
-  invitadosBusqueda.push({
-    nombre: inv.nombre,
-    principal: inv.nombre,
-    pases: inv.pases,
-    acompanantes: inv.acompanantes
-  });
-
-  // acompañantes
-  inv.acompanantes.forEach(a => {
-    invitadosBusqueda.push({
-      nombre: a,
-      principal: inv.nombre,
-      pases: inv.pases,
-      acompanantes: inv.acompanantes
-    });
-  });
-
-});
 
 function renderInvitado(invitado){
-
-  const resultado = document.getElementById("resultado");
 
   // actualizar cupos
   document.getElementById("cupos").textContent =
