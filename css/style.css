@@ -240,21 +240,51 @@ grid-template-columns:repeat(2, 1fr);
 }
 
 /* ----------------------------- */
-/* DETAILS */
+/* DETAILS (VERSIÓN PREMIUM OLIVA) */
 /* ----------------------------- */
 
 .details{
-background:#0f0f0f;
-padding:100px 20px;
+position:relative;
+
+background-image:url("../assets/img/intro.jpg");
+background-size:cover;
+background-position:center;
+
+padding:120px 20px;
 text-align:center;
+color:white;
+overflow:hidden;
 }
 
+/* overlay oliva elegante */
+
+.details::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(39,43,0,0.65);
+}
+
+/* asegurar contenido visible */
+
+.details *{
+position:relative;
+z-index:2;
+}
+
+/* título */
+
 .details-title{
-font-size:36px;
+font-size:42px;
 letter-spacing:4px;
 margin-bottom:60px;
-font-weight:500;
+font-weight:400;
 }
+
+/* contenedor */
 
 .details-container{
 display:flex;
@@ -263,17 +293,20 @@ gap:40px;
 align-items:center;
 }
 
-/* tarjeta */
+/* tarjetas */
 
 .detail-card{
-background:rgba(255,255,255,0.03);
+background:rgba(255,255,255,0.08);
 padding:40px 30px;
-border-radius:12px;
+border-radius:14px;
 max-width:400px;
 width:100%;
 
-backdrop-filter:blur(6px);
+backdrop-filter:blur(8px);
+
 box-shadow:0 20px 60px rgba(0,0,0,0.4);
+
+transition:all .3s ease;
 }
 
 .detail-card:hover{
@@ -281,8 +314,11 @@ transform:translateY(-8px);
 box-shadow:0 30px 80px rgba(0,0,0,0.6);
 }
 
+/* títulos internos */
+
 .detail-card h3{
-font-size:22px;
+font-family:'Cormorant Garamond', serif;
+font-size:26px;
 margin-bottom:20px;
 letter-spacing:1px;
 }
@@ -301,7 +337,7 @@ text-align:left;
 .detail-line p{
 margin:0;
 font-size:15px;
-opacity:0.85;
+opacity:0.9;
 }
 
 /* iconos */
@@ -319,42 +355,23 @@ flex-shrink:0;
 
 /* botones */
 
-.map-btn,
-.gift-btn{
+.map-btn{
 display:inline-block;
 margin-top:20px;
-padding:10px 24px;
+padding:10px 26px;
 
-border-radius:25px;
-background:#ddddd9;
-color:#111;
+border-radius:30px;
+
+background:#F8FBCA;
+color:#272B00;
 
 text-decoration:none;
 font-size:14px;
 
-position:relative;
-overflow:hidden;
+transition:all .3s ease;
 }
 
-.map-btn::after,
-.gift-btn::after{
-content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:rgba(255,255,255,0.2);
-transition:0.4s;
-}
-
-.map-btn:hover::after,
-.gift-btn:hover::after{
-left:100%;
-}
-
-.map-btn:hover,
-.gift-btn:hover{
+.map-btn:hover{
 transform:translateY(-3px);
 box-shadow:0 10px 25px rgba(0,0,0,0.3);
 }
