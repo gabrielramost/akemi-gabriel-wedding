@@ -625,6 +625,24 @@ border:1px solid #272B00;
 color:#272B00;
 }
 
+.asistentes{
+  margin-top:15px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.asistentes label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+}
+
+.asistentes input{
+  accent-color:#272B00;
+}
+
 /* ----------------------------- */
 /* GIFTS */
 /* ----------------------------- */
