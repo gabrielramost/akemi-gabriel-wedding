@@ -525,20 +525,30 @@ gap:8px;
 
 .rsvp{
 background:
-linear-gradient(rgba(248,251,202,0.92), rgba(248,251,202,0.92)),
+linear-gradient(rgba(248,251,202,0.88), rgba(248,251,202,0.88)),
 url("../assets/img/rsvp.jpg");
+
 background-size:cover;
-background-position:center;
+background-position:center 30%;
+background-repeat:no-repeat;
+
+min-height:100vh; /* 👈 CLAVE */
+display:flex;
+align-items:center;
+
 padding:140px 20px;
 color:#272B00;
 }
+
 .rsvp-container{
 max-width:1100px;
 margin:0 auto;
+
 display:flex;
 justify-content:space-between;
+align-items:center; /* 👈 antes estaba flex-start */
+
 gap:60px;
-align-items:flex-start;
 }
 
 .rsvp-buttons .secondary{
@@ -907,6 +917,16 @@ grid-template-columns:1fr;
 .rsvp-bg img:nth-child(2),
 .rsvp-bg img:nth-child(3){
 display:none;
+}
+
+}
+
+@media (max-width:768px){
+
+.rsvp{
+min-height:auto;
+padding:100px 20px;
+background-position:center;
 }
 
 }
