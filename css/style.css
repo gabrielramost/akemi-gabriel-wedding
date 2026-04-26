@@ -549,9 +549,10 @@ left:0;
 width:100%;
 height:100%;
 
+/* MÁS TRANSPARENCIA → deja ver la foto */
 background:linear-gradient(
-rgba(248,251,202,0.7),
-rgba(248,251,202,0.45)
+rgba(248,251,202,0.45),
+rgba(248,251,202,0.25)
 );
 }
 
@@ -952,7 +953,7 @@ background-position:center;
 @media (min-width:1024px){
 
   .rsvp{
-    background-position: center bottom;
+    background-position: center 85%;
   }
 
 }
