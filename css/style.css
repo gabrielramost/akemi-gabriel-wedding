@@ -490,12 +490,12 @@ text-align:left;
 .content h3{
 font-family:'Cormorant Garamond', serif;
 font-size:20px;
-margin-bottom:6px;
+letter-spacing:0.5px;
 }
 
 .content p{
-font-size:14px;
-opacity:0.7;
+opacity:0.6;
+font-style:italic;
 }
 
 /* ----------------------------- */
