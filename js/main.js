@@ -93,9 +93,21 @@ function confirmar(destino){
     ? "51945113430"
     : "51983545543";
 
+  // contar checkboxes seleccionados
+  const checks = document.querySelectorAll(".asistentes input:checked");
+
+  const total = checks.length;
+
+  // nombres seleccionados
+  const nombres = Array.from(checks).map(c =>
+    c.parentElement.textContent.trim()
+  );
+
   const mensaje = `Hola! Soy ${invitadoSeleccionado.nombre}.
 Confirmo mi asistencia.
-Somos ${invitadoSeleccionado.invitados} persona(s).`;
+
+Asistiremos ${total} persona(s):
+- ${nombres.join("\n- ")}`;
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
