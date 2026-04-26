@@ -526,7 +526,7 @@ gap:8px;
 .rsvp{
   background:
     linear-gradient(rgba(248,251,202,0.85), rgba(248,251,202,0.85)),
-    url("../assets/img/rsvp.jpg");
+    url("../assets/img/rsvp2.jpg");
     
   background-size: cover;
   background-position: center; /* 👈 MOBILE correcto */
