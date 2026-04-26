@@ -524,11 +524,14 @@ gap:8px;
 /* ----------------------------- */
 
 .rsvp{
-background:#F8FBCA;
+background:
+linear-gradient(rgba(248,251,202,0.92), rgba(248,251,202,0.92)),
+url("../assets/img/rsvp.jpg");
+background-size:cover;
+background-position:center;
 padding:140px 20px;
 color:#272B00;
 }
-
 .rsvp-container{
 max-width:1100px;
 margin:0 auto;
@@ -536,80 +539,6 @@ display:flex;
 justify-content:space-between;
 gap:60px;
 align-items:flex-start;
-}
-
-/* izquierda */
-
-.rsvp-left h2{
-font-size:48px;
-font-weight:500;
-line-height:1.2;
-}
-
-.rsvp-left span{
-display:block;
-font-family:'Great Vibes', cursive;
-font-size:64px;
-color:#86895D;
-}
-
-.rsvp-left p{
-margin-top:20px;
-font-size:18px;
-max-width:400px;
-}
-
-/* derecha */
-
-.rsvp-right{
-width:100%;
-max-width:500px;
-}
-
-/* input elegante */
-
-.rsvp-right input{
-width:100%;
-padding:16px;
-border-radius:10px;
-border:1px solid rgba(39,43,0,0.2);
-margin-bottom:20px;
-font-size:15px;
-background:white;
-}
-
-/* resultado */
-
-.resultado{
-margin-bottom:25px;
-}
-
-.resultado h3{
-font-size:20px;
-margin-bottom:5px;
-}
-
-.resultado p{
-opacity:0.7;
-font-size:15px;
-}
-
-/* botones */
-
-.rsvp-buttons{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.rsvp-buttons button{
-padding:14px 28px;
-border-radius:30px;
-border:none;
-background:#272B00;
-color:#F8FBCA;
-cursor:pointer;
-font-size:14px;
 }
 
 .rsvp-buttons .secondary{
