@@ -1,54 +1,76 @@
 // -----------------------------
+// ESTADO GLOBAL
+// -----------------------------
+let invitadoSeleccionado = null;
+
+
+// -----------------------------
 // INIT CUANDO DOM ESTÁ LISTO
 // -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
 
+  // -----------------------------
   // TIMELINE ANIMATION
+  // -----------------------------
   const items = document.querySelectorAll(".timeline-item");
 
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
-        obs.unobserve(entry.target); // solo una vez (más pro)
+        obs.unobserve(entry.target);
       }
     });
   }, { threshold: 0.2 });
 
   items.forEach(item => observer.observe(item));
 
+
+  // -----------------------------
+  // RSVP BUSCADOR
+  // -----------------------------
+  const input = document.querySelector(".rsvp-right input");
+  const resultado = document.getElementById("resultado");
+
+  input.addEventListener("input", () => {
+
+    const valor = input.value.toLowerCase();
+
+    // evitar ruido con 1 letra
+    if (valor.length < 2) {
+      resultado.innerHTML = "";
+      return;
+    }
+
+    const coincidencias = invitados.filter(i =>
+      i.nombre.toLowerCase().includes(valor)
+    );
+
+    if (coincidencias.length === 0) {
+      resultado.innerHTML = "";
+      return;
+    }
+
+    // lista de selección
+    resultado.innerHTML = coincidencias.map(i => `
+      <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
+        ${i.nombre}
+      </div>
+    `).join("");
+
+  });
+
 });
 
-let invitadoSeleccionado = null;
 
-const input = document.querySelector(".rsvp-right input");
-const resultado = document.getElementById("resultado");
-
-input.addEventListener("input", () => {
-
-  const valor = input.value.toLowerCase();
-
-  const coincidencias = invitados.filter(i =>
-    i.nombre.toLowerCase().includes(valor)
-  );
-
-  if (coincidencias.length === 0) {
-    resultado.innerHTML = "";
-    return;
-  }
-
-  // lista de opciones (para evitar nombres duplicados)
-  resultado.innerHTML = coincidencias.map(i => `
-    <div class="opcion" onclick="seleccionarInvitado('${i.nombre}')">
-      ${i.nombre}
-    </div>
-  `).join("");
-
-});
-
+// -----------------------------
+// RENDER INVITADO
+// -----------------------------
 function renderInvitado(invitado){
 
-  // 🔥 AQUÍ SE ARREGLA EL BUG DE CUPOS
+  const resultado = document.getElementById("resultado");
+
+  // actualizar cupos
   document.getElementById("cupos").textContent =
     invitado.pases + " asiento(s)";
 
@@ -58,31 +80,31 @@ function renderInvitado(invitado){
     <div class="asistentes">
   `;
 
-  // ❗ TITULAR YA NO ESTÁ FORZADO
+  // titular (YA NO forzado)
   html += `
     <label>
-      <input type="checkbox" class="acompanante" />
+      <input type="checkbox" class="asistente" />
       ${invitado.nombre}
     </label>
   `;
 
-  // acompañantes
+  // acompañantes reales
   invitado.acompanantes.forEach(a => {
     html += `
       <label>
-        <input type="checkbox" class="acompanante" />
+        <input type="checkbox" class="asistente" />
         ${a}
       </label>
     `;
   });
 
-  // extras
+  // espacios adicionales
   const faltantes = invitado.pases - (1 + invitado.acompanantes.length);
 
   for (let i = 0; i < faltantes; i++) {
     html += `
       <label>
-        <input type="checkbox" class="extra" />
+        <input type="checkbox" class="asistente" />
         Invitado adicional
       </label>
     `;
@@ -93,6 +115,10 @@ function renderInvitado(invitado){
   resultado.innerHTML = html;
 }
 
+
+// -----------------------------
+// SELECCIONAR INVITADO
+// -----------------------------
 function seleccionarInvitado(nombre){
 
   const invitado = invitados.find(i => i.nombre === nombre);
@@ -102,41 +128,6 @@ function seleccionarInvitado(nombre){
   renderInvitado(invitado);
 
 }
-
-  // titular (siempre incluido)
-  html += `
-    <label>
-      <input type="checkbox" checked disabled />
-      ${invitado.nombre}
-    </label>
-  `;
-
-  // acompañantes reales
-  invitado.acompanantes.forEach(a => {
-    html += `
-      <label>
-        <input type="checkbox" class="acompanante" checked />
-        ${a}
-      </label>
-    `;
-  });
-
-  // espacios libres
-  const faltantes = invitado.pases - (1 + invitado.acompanantes.length);
-
-  for (let i = 0; i < faltantes; i++) {
-    html += `
-      <label>
-        <input type="checkbox" class="extra" />
-        Invitado adicional
-      </label>
-    `;
-  }
-
-  html += `</div>`;
-
-  resultado.innerHTML = html;
-});
 
 
 // -----------------------------
@@ -153,12 +144,10 @@ function confirmar(destino){
     ? "51945113430"
     : "51983545543";
 
-  // contar checkboxes seleccionados
   const checks = document.querySelectorAll(".asistentes input:checked");
 
   const total = checks.length;
 
-  // nombres seleccionados
   const nombres = Array.from(checks).map(c =>
     c.parentElement.textContent.trim()
   );
@@ -174,6 +163,7 @@ Asistiremos ${total} persona(s):
   window.open(url, "_blank");
 }
 
+
 // -----------------------------
 // MENSAJE DE ERROR (UX PRO)
 // -----------------------------
@@ -184,7 +174,7 @@ function mostrarError(texto){
   if(!error){
     error = document.createElement("div");
     error.className = "error-msg";
-    document.querySelector(".rsvp-form").prepend(error);
+    document.querySelector(".rsvp-right").prepend(error);
   }
 
   error.textContent = texto;
@@ -193,6 +183,7 @@ function mostrarError(texto){
     error.textContent = "";
   }, 3000);
 }
+
 
 // -----------------------------
 // MOSTRAR CUENTA (ANIMADO)
