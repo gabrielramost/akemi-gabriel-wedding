@@ -270,39 +270,41 @@
 <!-- RSVP -->
 <section class="rsvp" id="rsvp">
 
-  <h2 class="rsvp-title">Confirma tu asistencia</h2>
+  <div class="rsvp-container">
 
-  <p class="rsvp-text">
-    Hemos reservado <strong>2 asientos</strong> en tu honor.
-  </p>
+    <!-- TEXTO -->
+    <div class="rsvp-left">
+      <h2>
+        Confirma tu
+        <span>Asistencia</span>
+      </h2>
 
-  <form class="rsvp-form">
+      <p>
+        Hemos reservado <strong id="cupos">—</strong> en tu honor.<br>
+        Por favor confirma tu asistencia.
+      </p>
+    </div>
 
-    <label>Nombre</label>
-    <input type="text" id="nombre" placeholder="Tu nombre">
+    <!-- FORM -->
+    <div class="rsvp-right">
 
-    <label>Asistencia</label>
-    <select id="asistencia">
-      <option value="">¿Asistirás?</option>
-      <option value="Sí asistiré">Sí, asistiré</option>
-      <option value="No podré asistir">No podré asistir</option>
-    </select>
+      <input 
+        type="text" 
+        id="busqueda" 
+        placeholder="Busca tu nombre"
+        oninput="buscarInvitado()"
+      >
 
-    <label>Número de personas</label>
-    <select id="personas">
-      <option value="1">1 persona</option>
-      <option value="2">2 personas</option>
-    </select>
+      <div id="resultado" class="resultado"></div>
 
-    <button type="button" onclick="enviarWhatsApp('novia')">
-      Confirmar con la novia
-    </button>
+      <div class="rsvp-buttons">
+        <button onclick="confirmar('novia')">Confirmar con la novia</button>
+        <button class="secondary" onclick="confirmar('novio')">Confirmar con el novio</button>
+      </div>
 
-    <button type="button" onclick="enviarWhatsApp('novio')" class="secondary">
-      Confirmar con el novio
-    </button>
+    </div>
 
-  </form>
+  </div>
 
 </section>
 
