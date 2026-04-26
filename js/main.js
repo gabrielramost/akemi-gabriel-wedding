@@ -97,8 +97,10 @@ function renderInvitado(invitado){
   document.getElementById("cupos").textContent =
     invitado.pases + " asiento(s)";
 
-  let html = `
-    <h3>${invitado.nombre}</h3>
+  let html = let html = `
+  <small>Invitación de ${invitado.nombre}</small>
+  <h3>${invitado.nombre}</h3>
+`;
     <p>Tienes ${invitado.pases} pase(s)</p>
     <div class="asistentes">
   `;
