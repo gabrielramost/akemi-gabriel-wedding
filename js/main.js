@@ -97,13 +97,12 @@ function renderInvitado(invitado){
   document.getElementById("cupos").textContent =
     invitado.pases + " asiento(s)";
 
-  let html = let html = `
+  let html = `
   <small>Invitación de ${invitado.nombre}</small>
   <h3>${invitado.nombre}</h3>
+  <p>Tienes ${invitado.pases} pase(s)</p>
+  <div class="asistentes">
 `;
-    <p>Tienes ${invitado.pases} pase(s)</p>
-    <div class="asistentes">
-  `;
 
   // titular (YA NO forzado)
   html += `
@@ -148,6 +147,8 @@ function seleccionarInvitado(nombre){
 
   const data = invitadosBusqueda.find(i => i.nombre === nombre);
 
+  if (!data) return;
+
   const invitado = invitados.find(i => i.nombre === data.principal);
 
   invitadoSeleccionado = invitado;
@@ -155,7 +156,6 @@ function seleccionarInvitado(nombre){
   renderInvitado(invitado);
 
 }
-
 
 // -----------------------------
 // RSVP WHATSAPP
