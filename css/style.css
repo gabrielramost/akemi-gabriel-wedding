@@ -525,32 +525,16 @@ gap:8px;
 /* ----------------------------- */
 
 .rsvp{
-  position: relative;  /* 👈 ESTA ES LA CLAVE */
+  position: relative;  
 
   background:
-    linear-gradient(rgba(248,251,202,0.85), rgba(248,251,202,0.85)),
+    linear-gradient(rgba(248,251,202,0.65), rgba(248,251,202,0.65)),
     url("../assets/img/rsvp2.jpg");
 
   background-size: cover;
   background-position: center;
-  padding:140px 20px;
+  padding:120px 20px;
   color:#272B00;
-}
-
-.rsvp::before{
-content:"";
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-
-background:linear-gradient(
-rgba(248,251,202,0.55),
-rgba(248,251,202,0.35)
-);
-
-backdrop-filter: blur(2px);
 }
 
 .rsvp-container{
