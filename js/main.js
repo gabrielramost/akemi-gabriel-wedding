@@ -1,17 +1,5 @@
 // -----------------------------
-// DATA INVITADOS (EDITA ESTO)
-// -----------------------------
-const invitados = [
-  { nombre: "Gabriel Ramos", cupos: 2, acompaña: "Akemi" },
-  { nombre: "Juan Perez", cupos: 1 },
-  { nombre: "Maria Lopez", cupos: 2, acompaña: "Carlos" }
-];
-
-let invitadoSeleccionado = null;
-
-
-// -----------------------------
-// INIT
+// INIT CUANDO DOM ESTÁ LISTO
 // -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -22,72 +10,27 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
-        obs.unobserve(entry.target);
+        obs.unobserve(entry.target); // solo una vez (más pro)
       }
     });
   }, { threshold: 0.2 });
 
   items.forEach(item => observer.observe(item));
 
-  // BUSCADOR RSVP
-  const input = document.getElementById("nombre");
-
-  if(input){
-    input.addEventListener("input", buscarInvitado);
-  }
-
 });
 
 
 // -----------------------------
-// BUSCAR INVITADO
-// -----------------------------
-function buscarInvitado(e){
-
-  const valor = e.target.value.toLowerCase();
-  const resultado = document.getElementById("resultado");
-
-  resultado.innerHTML = "";
-  invitadoSeleccionado = null;
-
-  if(valor.length < 2) return;
-
-  const match = invitados.find(inv =>
-    inv.nombre.toLowerCase().includes(valor)
-  );
-
-  if(match){
-
-    invitadoSeleccionado = match;
-
-    resultado.innerHTML = `
-      <div class="rsvp-result">
-        <p><strong>${match.nombre}</strong></p>
-        <p>Tienes <strong>${match.cupos}</strong asiento(s)</p>
-        ${
-          match.acompaña
-          ? `<p>Acompañante: ${match.acompaña}</p>`
-          : ""
-        }
-      </div>
-    `;
-
-  } else {
-
-    resultado.innerHTML = `
-      <p class="error-msg">No encontramos tu nombre</p>
-    `;
-  }
-}
-
-
-// -----------------------------
-// ENVIAR WHATSAPP (MEJORADO)
+// RSVP WHATSAPP
 // -----------------------------
 function enviarWhatsApp(destino){
 
-  if(!invitadoSeleccionado){
-    mostrarError("Primero busca y selecciona tu nombre");
+  const nombre = document.getElementById("nombre").value.trim();
+  const asistencia = document.getElementById("asistencia").value;
+  const personas = document.getElementById("personas").value;
+
+  if(nombre === "" || asistencia === ""){
+    mostrarError("Por favor completa tu nombre y asistencia");
     return;
   }
 
@@ -95,15 +38,9 @@ function enviarWhatsApp(destino){
     ? "51945113430"
     : "51983545543";
 
-  const mensaje = `Hola! Soy ${invitadoSeleccionado.nombre}.
-Confirmo mi asistencia a la boda.
-
-Asistiremos: ${invitadoSeleccionado.cupos} persona(s).
-${
-  invitadoSeleccionado.acompaña
-  ? `Acompañante: ${invitadoSeleccionado.acompaña}`
-  : ""
-}`;
+  const mensaje = `Hola! Soy ${nombre}.
+Confirmo que: ${asistencia}.
+Asistiremos: ${personas} persona(s).`;
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
@@ -112,7 +49,7 @@ ${
 
 
 // -----------------------------
-// MENSAJE ERROR (CORREGIDO)
+// MENSAJE DE ERROR (UX PRO)
 // -----------------------------
 function mostrarError(texto){
 
@@ -121,7 +58,7 @@ function mostrarError(texto){
   if(!error){
     error = document.createElement("div");
     error.className = "error-msg";
-    document.querySelector(".rsvp-right").prepend(error);
+    document.querySelector(".rsvp-form").prepend(error);
   }
 
   error.textContent = texto;
@@ -133,11 +70,15 @@ function mostrarError(texto){
 
 
 // -----------------------------
-// MOSTRAR CUENTA
+// MOSTRAR CUENTA (ANIMADO)
 // -----------------------------
 function mostrarCuenta(){
 
   const cuenta = document.getElementById("cuenta");
 
-  cuenta.classList.toggle("visible");
+  if(!cuenta.classList.contains("visible")){
+    cuenta.classList.add("visible");
+  } else {
+    cuenta.classList.remove("visible");
+  }
 }
