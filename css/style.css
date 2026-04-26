@@ -279,9 +279,18 @@ z-index:2;
 
 .details-title{
 font-size:42px;
-letter-spacing:4px;
+letter-spacing:2px;
 margin-bottom:60px;
 font-weight:400;
+line-height:1.2;
+}
+
+.details-title span{
+display:block;
+font-family:'Great Vibes', cursive;
+font-size:64px;
+color:#F8FBCA; /* se integra con el botón */
+margin-top:10px;
 }
 
 /* contenedor */
