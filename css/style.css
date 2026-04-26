@@ -625,22 +625,26 @@ border:1px solid #272B00;
 color:#272B00;
 }
 
-.asistentes{
-  margin-top:15px;
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-}
-
 .asistentes label{
   display:flex;
   align-items:center;
-  gap:8px;
-  font-size:14px;
+  gap:12px;
+  margin-bottom:10px;
 }
 
 .asistentes input{
-  accent-color:#272B00;
+  width:18px;
+  height:18px;
+}
+
+.opcion{
+  padding:10px;
+  cursor:pointer;
+  border-bottom:1px solid rgba(0,0,0,0.1);
+}
+
+.opcion:hover{
+  background:#f3f3f3;
 }
 
 /* ----------------------------- */
@@ -956,4 +960,16 @@ background-position:center;
   .rsvp{
     background-position: center 75%; /* 👈 ajusta aquí fino */
   }
+}
+
+@media(max-width:768px){
+
+  .rsvp-container{
+    flex-direction:column;
+  }
+
+  .rsvp-right{
+    width:100%;
+  }
+
 }
