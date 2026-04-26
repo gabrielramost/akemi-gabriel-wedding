@@ -527,8 +527,8 @@ gap:8px;
 position:relative;
 
 background-image:url("../assets/img/rsvp2.jpg");
-background-size:cover;
-background-position:center;
+background-size: 100 % auto;
+background-position:center 90%;
 
 min-height:100vh;
 
