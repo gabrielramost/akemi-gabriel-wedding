@@ -520,6 +520,53 @@ gap:8px;
 /* ----------------------------- */
 
 .rsvp{
+position:relative;
+padding:120px 20px;
+color:#fff;
+overflow:hidden;
+}
+
+/* CONTENIDO encima */
+
+.rsvp-container{
+position:relative;
+z-index:2;
+}
+
+/* COLLAGE */
+
+.rsvp-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+display:grid;
+grid-template-columns:repeat(3, 1fr);
+}
+
+.rsvp-bg img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:brightness(0.7);
+}
+
+/* OVERLAY OLIVA (clave para elegancia) */
+
+.rsvp::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(39,43,0,0.55);
+z-index:1;
+}
+
+.rsvp{
 background:#F8FBCA;
 padding:120px 20px;
 color:#272B00;
@@ -850,6 +897,19 @@ font-size:14px;
 display:flex;
 align-items:center;
 gap:6px;
+}
+
+}
+
+@media (max-width:768px){
+
+.rsvp-bg{
+grid-template-columns:1fr;
+}
+
+.rsvp-bg img:nth-child(2),
+.rsvp-bg img:nth-child(3){
+display:none;
 }
 
 }
