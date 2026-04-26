@@ -25,23 +25,83 @@ const input = document.querySelector(".rsvp-right input");
 const resultado = document.getElementById("resultado");
 
 input.addEventListener("input", () => {
+
   const valor = input.value.toLowerCase();
 
-  const invitado = invitados.find(i =>
+  const coincidencias = invitados.filter(i =>
     i.nombre.toLowerCase().includes(valor)
   );
 
-  if (!invitado) {
+  if (coincidencias.length === 0) {
     resultado.innerHTML = "";
     return;
   }
 
-  // generar lista de asistentes
+  // lista de opciones (para evitar nombres duplicados)
+  resultado.innerHTML = coincidencias.map(i => `
+    <div class="opcion" onclick="seleccionarInvitado('${i.nombre}')">
+      ${i.nombre}
+    </div>
+  `).join("");
+
+});
+
+function renderInvitado(invitado){
+
+  // 🔥 AQUÍ SE ARREGLA EL BUG DE CUPOS
+  document.getElementById("cupos").textContent =
+    invitado.pases + " asiento(s)";
+
   let html = `
     <h3>${invitado.nombre}</h3>
     <p>Tienes ${invitado.pases} pase(s)</p>
     <div class="asistentes">
   `;
+
+  // ❗ TITULAR YA NO ESTÁ FORZADO
+  html += `
+    <label>
+      <input type="checkbox" class="acompanante" />
+      ${invitado.nombre}
+    </label>
+  `;
+
+  // acompañantes
+  invitado.acompanantes.forEach(a => {
+    html += `
+      <label>
+        <input type="checkbox" class="acompanante" />
+        ${a}
+      </label>
+    `;
+  });
+
+  // extras
+  const faltantes = invitado.pases - (1 + invitado.acompanantes.length);
+
+  for (let i = 0; i < faltantes; i++) {
+    html += `
+      <label>
+        <input type="checkbox" class="extra" />
+        Invitado adicional
+      </label>
+    `;
+  }
+
+  html += `</div>`;
+
+  resultado.innerHTML = html;
+}
+
+function seleccionarInvitado(nombre){
+
+  const invitado = invitados.find(i => i.nombre === nombre);
+
+  invitadoSeleccionado = invitado;
+
+  renderInvitado(invitado);
+
+}
 
   // titular (siempre incluido)
   html += `
