@@ -26,10 +26,8 @@
 
 <main>
 
-<!-- INTRO -->
+<!-- INTRO (CAMBIO 1) -->
 <section class="intro" id="intro">
-  <div class="intro-bg"></div>
-
   <div class="intro-content">
     <p class="intro-text">
       Queremos compartir este momento contigo.<br>
@@ -38,41 +36,27 @@
   </div>
 </section>
 
-<!-- DETALLES -->
+<!-- DETALLES (CAMBIO 2: YA PREPARADO PARA FOTO EN CSS) -->
 <section class="details" id="details">
+
+  <div class="details-overlay"></div>
 
   <h2 class="details-title">Detalles</h2>
 
   <div class="details-container">
 
-    <!-- CEREMONIA -->
     <div class="detail-card">
       <h3>Ceremonia</h3>
 
       <div class="detail-line">
-        <svg viewBox="0 0 24 24" class="icon">
-          <rect x="3" y="5" width="18" height="16" rx="2"/>
-          <line x1="3" y1="9" x2="21" y2="9"/>
-          <line x1="8" y1="3" x2="8" y2="7"/>
-          <line x1="16" y1="3" x2="16" y2="7"/>
-        </svg>
         <p>30 de mayo de 2026</p>
       </div>
 
       <div class="detail-line">
-        <svg viewBox="0 0 24 24" class="icon">
-          <circle cx="12" cy="12" r="9"/>
-          <line x1="12" y1="7" x2="12" y2="12"/>
-          <line x1="12" y1="12" x2="16" y2="14"/>
-        </svg>
         <p>12:00 pm</p>
       </div>
 
       <div class="detail-line">
-        <svg viewBox="0 0 24 24" class="icon">
-          <path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"/>
-          <circle cx="12" cy="11" r="2"/>
-        </svg>
         <p>Parroquia “Santa María Magdalena”</p>
       </div>
 
@@ -81,24 +65,14 @@
       </a>
     </div>
 
-    <!-- RECEPCIÓN -->
     <div class="detail-card">
       <h3>Recepción</h3>
 
       <div class="detail-line">
-        <svg viewBox="0 0 24 24" class="icon">
-          <circle cx="12" cy="12" r="9"/>
-          <line x1="12" y1="7" x2="12" y2="12"/>
-          <line x1="12" y1="12" x2="16" y2="14"/>
-        </svg>
         <p>2:00 pm</p>
       </div>
 
       <div class="detail-line">
-        <svg viewBox="0 0 24 24" class="icon">
-          <path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"/>
-          <circle cx="12" cy="11" r="2"/>
-        </svg>
         <p>
           Centro Aeronáutico del Perú<br>
           Salón Revoredo<br>
@@ -115,7 +89,7 @@
 
 </section>
 
-<!-- TIMELINE -->
+<!-- TIMELINE (CAMBIO 3: estructura limpia para estilo claro) -->
 <section class="timeline" id="timeline">
   <h2 class="timeline-title">El gran día</h2>
 
@@ -126,7 +100,6 @@
       <div class="line"></div>
       <div class="content">
         <h3>Ceremonia religiosa</h3>
-        <p>Unión de nuestras vidas</p>
       </div>
     </div>
 
@@ -135,7 +108,6 @@
       <div class="line"></div>
       <div class="content">
         <h3>Recepción</h3>
-        <p>Bienvenida de invitados</p>
       </div>
     </div>
 
@@ -143,8 +115,7 @@
       <span class="time">2:30 pm</span>
       <div class="line"></div>
       <div class="content">
-        <h3>Momento especial</h3>
-        <p>Entrada de los novios y primer baile</p>
+        <h3>Entrada de los novios</h3>
       </div>
     </div>
 
@@ -152,8 +123,7 @@
       <span class="time">3:00 pm</span>
       <div class="line"></div>
       <div class="content">
-        <h3>Celebración</h3>
-        <p>Almuerzo y brindis</p>
+        <h3>Almuerzo</h3>
       </div>
     </div>
 
@@ -162,7 +132,6 @@
       <div class="line"></div>
       <div class="content">
         <h3>Inicio de la fiesta</h3>
-        <p>Baile y celebración</p>
       </div>
     </div>
 
@@ -171,71 +140,52 @@
       <div class="line"></div>
       <div class="content">
         <h3>Hora loca</h3>
-        <p>Un momento inolvidable</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <span class="time">7:00 pm</span>
-      <div class="line"></div>
-      <div class="content">
-        <h3>Show especial</h3>
-        <p>Sorpresas para todos</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <span class="time">8:00 pm</span>
-      <div class="line"></div>
-      <div class="content">
-        <h3>Seguimos celebrando</h3>
-        <p>La fiesta continúa</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- RSVP -->
+<!-- RSVP (CAMBIO 4: REDISEÑO COMPLETO) -->
 <section class="rsvp" id="rsvp">
 
-  <h2 class="rsvp-title">Confirma tu asistencia</h2>
+  <div class="rsvp-container">
 
-  <p class="rsvp-text">
-    Hemos reservado <strong>2 asientos</strong> en tu honor.
-  </p>
+    <!-- IZQUIERDA -->
+    <div class="rsvp-left">
+      <h2>
+        Confirma tu<br>
+        <span>Asistencia</span>
+      </h2>
 
-  <form class="rsvp-form">
+      <p>
+        Hemos reservado 2 asientos en tu honor.<br>
+        Por favor confirma tu asistencia.
+      </p>
+    </div>
 
-    <label>Nombre</label>
-    <input type="text" id="nombre" placeholder="Tu nombre">
+    <!-- DERECHA -->
+    <div class="rsvp-right">
 
-    <label>Asistencia</label>
-    <select id="asistencia">
-      <option value="">¿Asistirás?</option>
-      <option value="Sí asistiré">Sí, asistiré</option>
-      <option value="No podré asistir">No podré asistir</option>
-    </select>
+      <input type="text" id="nombre" placeholder="Busca tu nombre">
 
-    <label>Número de personas</label>
-    <select id="personas">
-      <option value="1">1 persona</option>
-      <option value="2">2 personas</option>
-    </select>
+      <div id="resultado"></div>
 
-    <button type="button" onclick="enviarWhatsApp('novia')">
-      Confirmar con la novia
-    </button>
+      <button type="button" onclick="enviarWhatsApp('novia')">
+        Confirmar con la novia
+      </button>
 
-    <button type="button" onclick="enviarWhatsApp('novio')" class="secondary">
-      Confirmar con el novio
-    </button>
+      <button type="button" onclick="enviarWhatsApp('novio')" class="secondary">
+        Confirmar con el novio
+      </button>
 
-  </form>
+    </div>
+
+  </div>
 
 </section>
 
-<!-- REGALOS -->
+<!-- REGALOS (CAMBIO 5: se mantiene, estilo cambia en CSS) -->
 <section class="gifts" id="gifts">
 
   <h2 class="gifts-title">Regalos</h2>
@@ -252,7 +202,7 @@
       Ver datos bancarios
     </button>
 
-    <div class="bank-box" id="cuenta" style="display:none;">
+    <div class="bank-box" id="cuenta">
       <p><strong>Banco:</strong> BCP</p>
       <p><strong>Cuenta:</strong> XXXX-XXXX-XXXX</p>
       <p><strong>CCI:</strong> XXXX-XXXX-XXXX-XXXX</p>
