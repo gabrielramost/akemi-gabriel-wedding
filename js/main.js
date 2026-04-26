@@ -19,34 +19,60 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+let invitadoSeleccionado = null;
 
-// -----------------------------
-// RSVP WHATSAPP
-// -----------------------------
-function enviarWhatsApp(destino){
+function buscarInvitado(){
 
-  const nombre = document.getElementById("nombre").value.trim();
-  const asistencia = document.getElementById("asistencia").value;
-  const personas = document.getElementById("personas").value;
+  const input = document.getElementById("busqueda").value.toLowerCase();
+  const resultado = document.getElementById("resultado");
 
-  if(nombre === "" || asistencia === ""){
-    mostrarError("Por favor completa tu nombre y asistencia");
+  if(input.length < 2){
+    resultado.innerHTML = "";
     return;
   }
 
-  let numero = destino === "novia"
+  const match = invitados.find(inv =>
+    inv.nombre.toLowerCase().includes(input)
+  );
+
+  if(match){
+
+    invitadoSeleccionado = match;
+
+    document.getElementById("cupos").innerText = match.invitados + " asiento(s)";
+
+    resultado.innerHTML = `
+      <h3>${match.nombre}</h3>
+      <p>Tienes ${match.invitados} pase(s)</p>
+      ${match.acompanante ? `<p>Acompañante: ${match.acompanante}</p>` : ""}
+    `;
+
+  } else {
+    resultado.innerHTML = `<p>No encontramos tu nombre</p>`;
+  }
+} 
+// -----------------------------
+// RSVP WHATSAPP
+// -----------------------------
+function confirmar(destino){
+
+  if(!invitadoSeleccionado){
+    alert("Busca tu nombre primero");
+    return;
+  }
+
+  const numero = destino === "novia"
     ? "51945113430"
     : "51983545543";
 
-  const mensaje = `Hola! Soy ${nombre}.
-Confirmo que: ${asistencia}.
-Asistiremos: ${personas} persona(s).`;
+  const mensaje = `Hola! Soy ${invitadoSeleccionado.nombre}.
+Confirmo mi asistencia.
+Somos ${invitadoSeleccionado.invitados} persona(s).`;
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
 
   window.open(url, "_blank");
 }
-
 
 // -----------------------------
 // MENSAJE DE ERROR (UX PRO)
