@@ -946,6 +946,6 @@ background-position:center;
 
 @media (min-width:1024px){
   .rsvp{
-    background-position: center 85%; /* 👈 ajusta aquí fino */
+    background-position: center 75%; /* 👈 ajusta aquí fino */
   }
 }
