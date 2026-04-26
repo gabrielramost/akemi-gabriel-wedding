@@ -524,21 +524,14 @@ gap:8px;
 /* ----------------------------- */
 
 .rsvp{
-position:relative;
-
-background-image:url("../assets/img/rsvp2.jpg");
-background-size: 100 % auto;
-background-position:center 90%;
-
-min-height:100vh;
-
-display:flex;
-align-items:flex-end;
-
-padding:140px 20px;
-color:#272B00;
-
-overflow:hidden;
+  background:
+    linear-gradient(rgba(248,251,202,0.85), rgba(248,251,202,0.85)),
+    url("../assets/img/rsvp.jpg");
+    
+  background-size: cover;
+  background-position: center; /* 👈 MOBILE correcto */
+  padding:140px 20px;
+  color:#272B00;
 }
 
 .rsvp::before{
@@ -952,9 +945,7 @@ background-position:center;
 }
 
 @media (min-width:1024px){
-
   .rsvp{
-    background-position: center bottom;
+    background-position: center 85%; /* 👈 ajusta aquí fino */
   }
-
 }
