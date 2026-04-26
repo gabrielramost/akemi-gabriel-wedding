@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const coincidencias = invitados.filter(i =>
-      i.nombre.toLowerCase().includes(valor)
+    const coincidencias = invitadosBusqueda.filter(i =>
+    i.nombre.toLowerCase().includes(valor)
     );
 
     if (coincidencias.length === 0) {
@@ -66,6 +66,35 @@ document.addEventListener("DOMContentLoaded", () => {
 // -----------------------------
 // RENDER INVITADO
 // -----------------------------
+
+html = `
+  <small>Invitación de ${invitado.nombre}</small>
+` + html;
+
+const invitadosBusqueda = [];
+
+invitados.forEach(inv => {
+
+  // titular
+  invitadosBusqueda.push({
+    nombre: inv.nombre,
+    principal: inv.nombre,
+    pases: inv.pases,
+    acompanantes: inv.acompanantes
+  });
+
+  // acompañantes
+  inv.acompanantes.forEach(a => {
+    invitadosBusqueda.push({
+      nombre: a,
+      principal: inv.nombre,
+      pases: inv.pases,
+      acompanantes: inv.acompanantes
+    });
+  });
+
+});
+
 function renderInvitado(invitado){
 
   const resultado = document.getElementById("resultado");
@@ -121,7 +150,9 @@ function renderInvitado(invitado){
 // -----------------------------
 function seleccionarInvitado(nombre){
 
-  const invitado = invitados.find(i => i.nombre === nombre);
+  const data = invitadosBusqueda.find(i => i.nombre === nombre);
+
+  const invitado = invitados.find(i => i.nombre === data.principal);
 
   invitadoSeleccionado = invitado;
 
