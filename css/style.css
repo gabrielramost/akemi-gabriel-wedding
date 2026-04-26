@@ -707,3 +707,72 @@ opacity:1;
 max-height:200px;
 margin-top:20px;
 }
+
+@media (max-width:768px){
+
+.timeline{
+padding:100px 20px;
+}
+
+/* título más compacto */
+
+.timeline-title{
+font-size:32px;
+margin-bottom:60px;
+}
+
+.timeline-title span{
+font-size:48px;
+}
+
+/* eje se mueve a la izquierda */
+
+.timeline-container::before{
+left:20px;
+transform:none;
+}
+
+/* cada item en columna */
+
+.timeline-item{
+flex-direction:row;
+align-items:flex-start;
+gap:15px;
+margin-bottom:50px;
+}
+
+/* hora arriba alineada */
+
+.time{
+width:auto;
+text-align:left;
+font-size:12px;
+margin-left:40px;
+margin-bottom:5px;
+}
+
+/* punto alineado con eje */
+
+.line{
+margin-left:12px;
+}
+
+/* contenido ocupa todo */
+
+.content{
+width:100%;
+text-align:left;
+padding-left:40px;
+}
+
+/* textos más grandes para lectura */
+
+.content h3{
+font-size:18px;
+}
+
+.content p{
+font-size:14px;
+}
+
+} 
