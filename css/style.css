@@ -668,7 +668,7 @@ background:#F3F5D5;
 .gifts{
   padding:140px 20px;
   text-align:center;
-  background:#F8FBCA; /* mismo que timeline */
+  background:#F8FBCA;
   color:#272B00;
 }
 
@@ -681,7 +681,7 @@ background:#F3F5D5;
 .gifts-title{
   font-size:42px;
   letter-spacing:2px;
-  margin-bottom:60px;
+  margin-bottom:100px;
   font-weight:400;
   font-family:'Cormorant Garamond', serif;
 }
@@ -691,7 +691,7 @@ background:#F3F5D5;
   font-family:'Great Vibes', cursive;
   font-size:60px;
   color:#86895D;
-  margin-top:8px;
+  margin-top:10px;
 }
 
 /* textos */
@@ -699,8 +699,8 @@ background:#F3F5D5;
   font-size:18px;
   line-height:1.8;
   margin-bottom:20px;
-  opacity:0.75;
-  font-style:normal; 
+  opacity:0.85;
+  font-style:normal;
 }
 
 /* botón elegante */
@@ -726,7 +726,7 @@ background:#F3F5D5;
   color:#fff;
 }
 
-/* caja bancaria */
+/* caja bancaria (🔥 FIX REAL) */
 .bank-box{
   background:rgba(134,137,93,0.08);
   padding:30px;
@@ -740,12 +740,23 @@ background:#F3F5D5;
   box-shadow:0 20px 60px rgba(0,0,0,0.08);
   border:1px solid rgba(134,137,93,0.2);
 
-  display:none;
   margin-top:30px;
+
+  /* 🔥 CLAVE PARA ANIMACIÓN */
+  opacity:0;
+  max-height:0;
+  overflow:hidden;
+  transition:all .4s ease;
 }
 
-/* números de cuenta */
+/* estado visible */
+.bank-box.show{
+  opacity:1;
+  max-height:300px;
+  padding:30px;
+}
 
+/* contenido */
 .titular{
   font-weight:500;
   margin-bottom:15px;
@@ -768,12 +779,7 @@ background:#F3F5D5;
   font-size:16px;
 }
 
-/* animación suave */
-.bank-box.show{
-  display:block;
-  animation:fadeInUp 0.4s ease;
-}
-
+/* animación opcional suave */
 @keyframes fadeInUp{
   from{
     opacity:0;
@@ -1087,11 +1093,12 @@ background-position: center;
   .bank-box{
     padding:20px;
     font-size:14px;
+    max-height:500px; /* 🔥 clave para evitar corte */
   }
 
   .cuenta{
     font-size:14px;
-    word-break:break-all; /* 🔥 SOLUCION MOBILE */
+    word-break:break-word;
   }
 
 }
