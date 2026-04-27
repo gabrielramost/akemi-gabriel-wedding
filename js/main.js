@@ -55,36 +55,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector(".rsvp-right input");
   const resultado = document.getElementById("resultado");
 
-  input.addEventListener("input", () => {
+ input.addEventListener("input", () => {
 
-    const valor = input.value.toLowerCase();
+  const valor = input.value.toLowerCase();
 
-    // evitar ruido con 1 letra
-    if (valor.length < 2) {
-      resultado.innerHTML = "";
-      return;
-    }
+  if (valor.length < 2) {
+    resultado.innerHTML = "";
+    help.textContent = "Escribe tu nombre o el de tu familia";
+    return;
+  }
 
-    const coincidencias = invitadosBusqueda.filter(i =>
+  const coincidencias = invitadosBusqueda.filter(i =>
     i.nombre.toLowerCase().includes(valor)
-    );
+  );
 
-    if (coincidencias.length === 0) {
-      resultado.innerHTML = "";
-      return;
-    }
+  if (coincidencias.length === 0) {
+    resultado.innerHTML = "";
+    help.textContent = "No encontramos tu nombre";
+    return;
+  }
 
-    // lista de selección
-    resultado.innerHTML = coincidencias.map(i => `
-      <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
-        ${i.nombre}
-      </div>
-    `).join("");
+  help.textContent = "Selecciona tu nombre de la lista"; // 🔥 CLAVE
 
-  });
+  resultado.innerHTML = coincidencias.map(i => `
+    <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
+      ${i.nombre}
+    </div>
+  `).join("");
 
 });
-
 
 // -----------------------------
 // RENDER INVITADO
@@ -152,6 +151,10 @@ function seleccionarInvitado(nombre){
   const invitado = invitados.find(i => i.nombre === data.principal);
 
   invitadoSeleccionado = invitado;
+
+  // 🔥 AGREGA ESTO AQUÍ
+  document.getElementById("rsvp-help").textContent =
+    "Marca quiénes asistirán y confirma";
 
   renderInvitado(invitado);
 
