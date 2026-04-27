@@ -589,6 +589,10 @@ padding:20px; /* 👈 CLAVE */
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 }
 
+.resultado:empty {
+  display: none;
+}
+
 .resultado h3{
 margin-bottom:6px;
 }
@@ -648,8 +652,7 @@ background:#F3F5D5;
 .rsvp-help{
   font-size:14px;
   color:#6b6b6b;
-  margin-top:8px;
-  margin-bottom:10px;
+  margin-bottom:6px; /* 👈 antes estaba arriba */
   font-style:italic;
 }
 
