@@ -1098,8 +1098,14 @@ background-position: center;
   }
 
   .cuenta{
-    font-size:14px;
+    font-size:16px;
     word-break:break-word;
+    cursor:pointer;
+    transition:all .2s ease;
   }
 
+  .cuenta:hover{
+  color:#86895D;
+}
+  
 }
