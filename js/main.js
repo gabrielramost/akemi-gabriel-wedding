@@ -221,9 +221,9 @@ Asistiremos ${total} persona(s):
 // -----------------------------
 // MOSTRAR CUENTA
 // -----------------------------
-function mostrarCuenta(){
-  const cuenta = document.getElementById("cuenta");
+function toggleCuenta(){
+  const cuenta = document.getElementById("bankBox");
   if (!cuenta) return;
 
-  cuenta.classList.toggle("visible");
+  cuenta.classList.toggle("show");
 }
