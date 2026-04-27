@@ -3,13 +3,16 @@
 // -----------------------------
 let invitadoSeleccionado = null;
 
-
+// -----------------------------
+// GENERAR LISTA DE BÚSQUEDA
+// -----------------------------
 const invitadosBusqueda = [];
 
 if (typeof invitados !== "undefined") {
 
   invitados.forEach(inv => {
 
+    // titular
     invitadosBusqueda.push({
       nombre: inv.nombre,
       principal: inv.nombre,
@@ -17,6 +20,7 @@ if (typeof invitados !== "undefined") {
       acompanantes: inv.acompanantes
     });
 
+    // acompañantes
     inv.acompanantes.forEach(a => {
       invitadosBusqueda.push({
         nombre: a,
@@ -51,68 +55,75 @@ document.addEventListener("DOMContentLoaded", () => {
 
   items.forEach(item => observer.observe(item));
 
-
   // -----------------------------
   // RSVP BUSCADOR
   // -----------------------------
   const input = document.querySelector(".rsvp-right input");
   const resultado = document.getElementById("resultado");
-
   const help = document.getElementById("rsvp-help");
 
- if (input) {
-  input.addEventListener("input", () => {
+  if (input && resultado) {
 
-  const valor = input.value.toLowerCase();
+    input.addEventListener("input", () => {
 
-  if (valor.length < 2) {
-    resultado.innerHTML = "";
-    if (help) help.textContent = "Escribe tu nombre";
-    return;
+      const valor = input.value.toLowerCase();
+
+      if (valor.length < 2) {
+        resultado.innerHTML = "";
+        if (help) help.textContent = "Escribe tu nombre o el de tu familia";
+        return;
+      }
+
+      // eliminar duplicados
+      const coincidencias = [...new Map(
+        invitadosBusqueda.map(i => [i.nombre, i])
+      ).values()].filter(i =>
+        i.nombre.toLowerCase().includes(valor)
+      );
+
+      if (coincidencias.length === 0) {
+        resultado.innerHTML = "";
+        if (help) help.textContent = "No encontramos tu nombre";
+        return;
+      }
+
+      if (help) help.textContent = "Selecciona tu nombre de la lista";
+
+      resultado.innerHTML = coincidencias.map(i => `
+        <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
+          ${i.nombre}
+        </div>
+      `).join("");
+
+    });
+
   }
 
-  const coincidencias = [...new Map(
-  invitadosBusqueda.map(i => [i.nombre, i])
-  ).values()].filter(i =>
-    i.nombre.toLowerCase().includes(valor)
-  );
-
-  if (coincidencias.length === 0) {
-    resultado.innerHTML = "";
-    if (help) help.textContent = "No encontramos tu nombre";
-    return;
-  }
-
-  if (help) help.textContent = "Selecciona tu nombre de la lista";
-
-  resultado.innerHTML = coincidencias.map(i => `
-    <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
-      ${i.nombre}
-    </div>
-  `).join("");
-
-  });
-}
+});
 
 // -----------------------------
 // RENDER INVITADO
 // -----------------------------
-
-
 function renderInvitado(invitado){
 
+  const resultado = document.getElementById("resultado");
+
+  if (!resultado) return;
+
   // actualizar cupos
-  document.getElementById("cupos").textContent =
-    invitado.pases + " asiento(s)";
+  const cupos = document.getElementById("cupos");
+  if (cupos) {
+    cupos.textContent = invitado.pases + " asiento(s)";
+  }
 
   let html = `
-  <small>Invitación de ${invitado.nombre}</small>
-  <h3>${invitado.nombre}</h3>
-  <p>Tienes ${invitado.pases} pase(s)</p>
-  <div class="asistentes">
-`;
+    <small>Invitación de ${invitado.nombre}</small>
+    <h3>${invitado.nombre}</h3>
+    <p>Tienes ${invitado.pases} pase(s)</p>
+    <div class="asistentes">
+  `;
 
-  // titular (YA NO forzado)
+  // titular
   html += `
     <label>
       <input type="checkbox" class="asistente" />
@@ -120,7 +131,7 @@ function renderInvitado(invitado){
     </label>
   `;
 
-  // acompañantes reales
+  // acompañantes
   invitado.acompanantes.forEach(a => {
     html += `
       <label>
@@ -130,7 +141,7 @@ function renderInvitado(invitado){
     `;
   });
 
-  // espacios adicionales
+  // extras
   const faltantes = invitado.pases - (1 + invitado.acompanantes.length);
 
   for (let i = 0; i < faltantes; i++) {
@@ -147,7 +158,6 @@ function renderInvitado(invitado){
   resultado.innerHTML = html;
 }
 
-
 // -----------------------------
 // SELECCIONAR INVITADO
 // -----------------------------
@@ -157,15 +167,18 @@ function seleccionarInvitado(nombre){
   if (!data) return;
 
   const invitado = invitados.find(i => i.nombre === data.principal);
+  if (!invitado) return;
 
   invitadoSeleccionado = invitado;
 
-  resultado.innerHTML = ""; // 👈 AGREGA ESTA LÍNEA
+  const resultado = document.getElementById("resultado");
+  if (resultado) resultado.innerHTML = "";
 
   const help = document.getElementById("rsvp-help");
-if (help) {
-  help.textContent = "Marca quiénes asistirán y confirma";
-}
+  if (help) {
+    help.textContent = "Marca quiénes asistirán y confirma";
+  }
+
   renderInvitado(invitado);
 }
 
@@ -202,38 +215,12 @@ Asistiremos ${total} persona(s):
   window.open(url, "_blank");
 }
 
-
 // -----------------------------
-// MENSAJE DE ERROR (UX PRO)
-// -----------------------------
-function mostrarError(texto){
-
-  let error = document.querySelector(".error-msg");
-
-  if(!error){
-    error = document.createElement("div");
-    error.className = "error-msg";
-    document.querySelector(".rsvp-right").prepend(error);
-  }
-
-  error.textContent = texto;
-
-  setTimeout(()=>{
-    error.textContent = "";
-  }, 3000);
-}
-
-
-// -----------------------------
-// MOSTRAR CUENTA (ANIMADO)
+// MOSTRAR CUENTA
 // -----------------------------
 function mostrarCuenta(){
-
   const cuenta = document.getElementById("cuenta");
+  if (!cuenta) return;
 
-  if(!cuenta.classList.contains("visible")){
-    cuenta.classList.add("visible");
-  } else {
-    cuenta.classList.remove("visible");
-  }
+  cuenta.classList.toggle("visible");
 }
