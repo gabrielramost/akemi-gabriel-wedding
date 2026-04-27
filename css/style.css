@@ -650,10 +650,18 @@ background:#F3F5D5;
 }
 
 .rsvp-help{
-  font-size:14px;
-  color:#6b6b6b;
-  margin-bottom:6px; /* 👈 antes estaba arriba */
-  font-style:italic;
+  font-size: 14px;
+  font-style: italic;
+  color: rgba(0,0,0,0.65);
+  margin-bottom: 8px;
+
+  /* 👇 clave visual */
+  background: rgba(255,255,255,0.5);
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: inline-block;
+
+  backdrop-filter: blur(4px);
 }
 
 /* ----------------------------- */
