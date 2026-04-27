@@ -687,13 +687,21 @@ background:#F3F5D5;
   font-family:'Cormorant Garamond', serif;
 }
 
+.gifts-title span{
+  display:block;
+  font-family:'Great Vibes', cursive;
+  font-size:60px;
+  color:#86895D;
+  margin-top:8px;
+}
+
 /* textos */
 .gift-text{
   font-size:18px;
   line-height:1.8;
-  margin-bottom:25px;
-  opacity:0.7;
-  font-style:italic;
+  margin-bottom:20px;
+  opacity:0.75;
+  font-style:normal; 
 }
 
 /* botón elegante */
@@ -738,6 +746,13 @@ background:#F3F5D5;
 }
 
 /* números de cuenta */
+
+.titular{
+  font-weight:500;
+  margin-bottom:15px;
+  font-size:16px;
+}
+
 .bank-box p{
   margin:8px 0;
 }
@@ -1052,3 +1067,32 @@ background-position: center;
     width:100%;
   }
 
+@media (max-width: 768px){
+
+  .gifts{
+    padding:100px 20px;
+  }
+
+  .gifts-title{
+    font-size:34px;
+  }
+
+  .gifts-title span{
+    font-size:48px;
+  }
+
+  .gift-text{
+    font-size:17px;
+  }
+
+  .bank-box{
+    padding:20px;
+    font-size:14px;
+  }
+
+  .cuenta{
+    font-size:14px;
+    word-break:break-all; /* 🔥 SOLUCION MOBILE */
+  }
+
+}
