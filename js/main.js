@@ -2,6 +2,7 @@
 // ESTADO GLOBAL
 // -----------------------------
 let invitadoSeleccionado = null;
+let nombreBuscado = null;
 
 // -----------------------------
 // GENERAR LISTA DE BÚSQUEDA
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (valor.length < 2) {
         resultado.innerHTML = "";
-        if (help) help.textContent = "Escribe tu nombre o el de tu familia";
+        if (help) help.textContent = "Escribe tu nombre y apellido";
         return;
       }
 
@@ -117,9 +118,10 @@ function renderInvitado(invitado){
   }
 
   let html = `
-    <h3>${invitado.nombre}</h3>
-    <p>Tienes ${invitado.pases} pase(s)</p>
-    <div class="asistentes">
+  <h3>${nombreBuscado}</h3>
+  <small>Invitación de ${invitado.nombre}</small>
+  <p>Tienes ${invitado.pases} pase(s)</p>
+  <div class="asistentes">
   `;
 
   // titular
@@ -162,6 +164,8 @@ function renderInvitado(invitado){
 // -----------------------------
 function seleccionarInvitado(nombre){
 
+  nombreBuscado = nombre; // 👈 NUEVO
+  
   const data = invitadosBusqueda.find(i => i.nombre === nombre);
   if (!data) return;
 
