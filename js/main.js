@@ -117,7 +117,6 @@ function renderInvitado(invitado){
   }
 
   let html = `
-    <small>Invitación de ${invitado.nombre}</small>
     <h3>${invitado.nombre}</h3>
     <p>Tienes ${invitado.pases} pase(s)</p>
     <div class="asistentes">
