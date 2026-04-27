@@ -55,6 +55,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.querySelector(".rsvp-right input");
   const resultado = document.getElementById("resultado");
 
+  const help = document.getElementById("rsvp-help");
+
  input.addEventListener("input", () => {
 
   const valor = input.value.toLowerCase();
