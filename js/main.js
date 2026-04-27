@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (valor.length < 2) {
     resultado.innerHTML = "";
-    help.textContent = "Escribe tu nombre o el de tu familia";
+    if (help) help.textContent = "Escribe tu nombre";
     return;
   }
 
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (coincidencias.length === 0) {
     resultado.innerHTML = "";
-    help.textContent = "No encontramos tu nombre";
+    if (help) help.textContent = "No encontramos tu nombre";
     return;
   }
 
@@ -162,9 +162,10 @@ function seleccionarInvitado(nombre){
 
   resultado.innerHTML = ""; // 👈 AGREGA ESTA LÍNEA
 
-  document.getElementById("rsvp-help").textContent =
-    "Marca quiénes asistirán y confirma";
-
+  const help = document.getElementById("rsvp-help");
+if (help) {
+  help.textContent = "Marca quiénes asistirán y confirma";
+}
   renderInvitado(invitado);
 }
 
