@@ -222,8 +222,18 @@ Asistiremos ${total} persona(s):
 // MOSTRAR CUENTA
 // -----------------------------
 function toggleCuenta(){
-  const cuenta = document.getElementById("bankBox");
-  if (!cuenta) return;
 
-  cuenta.classList.toggle("show");
+  const box = document.getElementById("bankBox");
+  const btn = document.getElementById("btnCuenta");
+
+  if(!box) return;
+
+  box.classList.toggle("show");
+
+  if(box.classList.contains("show")){
+    btn.textContent = "Ocultar datos bancarios";
+  } else {
+    btn.textContent = "Ver datos bancarios";
+  }
+
 }
