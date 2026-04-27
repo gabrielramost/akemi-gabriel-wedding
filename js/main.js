@@ -6,7 +6,29 @@ let invitadoSeleccionado = null;
 
 const invitadosBusqueda = [];
 
-invitados.forEach(inv => {
+if (typeof invitados !== "undefined") {
+
+  invitados.forEach(inv => {
+
+    invitadosBusqueda.push({
+      nombre: inv.nombre,
+      principal: inv.nombre,
+      pases: inv.pases,
+      acompanantes: inv.acompanantes
+    });
+
+    inv.acompanantes.forEach(a => {
+      invitadosBusqueda.push({
+        nombre: a,
+        principal: inv.nombre,
+        pases: inv.pases,
+        acompanantes: inv.acompanantes
+      });
+    });
+
+  });
+
+}
 
   // titular
   invitadosBusqueda.push({
@@ -57,7 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const help = document.getElementById("rsvp-help");
 
- input.addEventListener("input", () => {
+ if (input) {
+  input.addEventListener("input", () => {
 
   const valor = input.value.toLowerCase();
 
@@ -67,7 +90,9 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  const coincidencias = invitadosBusqueda.filter(i =>
+  const coincidencias = [...new Map(
+  invitadosBusqueda.map(i => [i.nombre, i])
+  ).values()].filter(i =>
     i.nombre.toLowerCase().includes(valor)
   );
 
@@ -77,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  help.textContent = "Selecciona tu nombre de la lista"; // 🔥 CLAVE
+  if (help) help.textContent = "Selecciona tu nombre de la lista";
 
   resultado.innerHTML = coincidencias.map(i => `
     <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
@@ -85,7 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `).join("");
 
-});
+  });
+}
 
 // -----------------------------
 // RENDER INVITADO
@@ -147,19 +173,18 @@ function renderInvitado(invitado){
 function seleccionarInvitado(nombre){
 
   const data = invitadosBusqueda.find(i => i.nombre === nombre);
-
   if (!data) return;
 
   const invitado = invitados.find(i => i.nombre === data.principal);
 
   invitadoSeleccionado = invitado;
 
-  // 🔥 AGREGA ESTO AQUÍ
+  resultado.innerHTML = ""; // 👈 AGREGA ESTA LÍNEA
+
   document.getElementById("rsvp-help").textContent =
     "Marca quiénes asistirán y confirma";
 
   renderInvitado(invitado);
-
 }
 
 // -----------------------------
