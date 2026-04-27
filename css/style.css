@@ -650,12 +650,14 @@ background:#F3F5D5;
 }
 
 .rsvp-help{
-  font-size: 14px;
+  font-size: 16px;
   font-style: italic;
+  font-weight: 600; 
+  letter-spacing: 0.3px;
+  
   color: rgba(0,0,0,0.65);
   margin-bottom: 8px;
 
-  /* 👇 clave visual */
   background: rgba(255,255,255,0.5);
   padding: 6px 12px;
   border-radius: 8px;
