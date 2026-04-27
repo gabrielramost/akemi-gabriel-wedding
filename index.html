@@ -310,13 +310,17 @@
 
 </section>
 
-<!-- REGALOS -->
 <section class="gifts" id="gifts">
 
   <div class="gifts-container">
 
-    <h2 class="gifts-title">Regalos</h2>
+    <!-- TÍTULO CONSISTENTE -->
+    <h2 class="gifts-title">
+      Regalo de
+      <span>bodas</span>
+    </h2>
 
+    <!-- TEXTO (NO CURSIVA EXAGERADA) -->
     <p class="gift-text">
       Tu presencia en este día tan especial es el mejor regalo que podríamos recibir.
     </p>
@@ -325,12 +329,14 @@
       Si deseas tener un detalle con nosotros, puedes ayudarnos a construir nuestro futuro juntos.
     </p>
 
-    <button class="btn-gifts" onclick="toggleCuenta()">
+    <button id="btnCuenta" class="btn-gifts" onclick="toggleCuenta()">
       Ver datos bancarios
     </button>
 
-    <!-- CONTENIDO OCULTO -->
+    <!-- DATOS -->
     <div id="bankBox" class="bank-box">
+
+      <p class="titular">Akemi Nicole Andrade Toma</p>
 
       <p><strong>BCP (Soles)</strong></p>
       <p class="cuenta">19376507719022</p>
