@@ -30,25 +30,6 @@ if (typeof invitados !== "undefined") {
 
 }
 
-  // titular
-  invitadosBusqueda.push({
-    nombre: inv.nombre,
-    principal: inv.nombre,
-    pases: inv.pases,
-    acompanantes: inv.acompanantes
-  });
-
-  // acompañantes
-  inv.acompanantes.forEach(a => {
-    invitadosBusqueda.push({
-      nombre: a,
-      principal: inv.nombre,
-      pases: inv.pases,
-      acompanantes: inv.acompanantes
-    });
-  });
-
-});
 // -----------------------------
 // INIT CUANDO DOM ESTÁ LISTO
 // -----------------------------
