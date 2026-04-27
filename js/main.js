@@ -237,3 +237,31 @@ function toggleCuenta(){
   }
 
 }
+
+// -----------------------------
+// COPIAR TEXTO (UX PRO)
+// -----------------------------
+function copiarTexto(elemento){
+
+  const texto = elemento.textContent.trim();
+
+  navigator.clipboard.writeText(texto)
+    .then(() => {
+
+      // feedback visual
+      const original = elemento.textContent;
+
+      elemento.textContent = "Copiado ✔";
+      elemento.style.color = "#86895D";
+
+      setTimeout(() => {
+        elemento.textContent = original;
+        elemento.style.color = "";
+      }, 1500);
+
+    })
+    .catch(() => {
+      alert("No se pudo copiar");
+    });
+
+}
