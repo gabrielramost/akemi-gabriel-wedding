@@ -663,46 +663,113 @@ background:#F3F5D5;
 }
 
 /* ----------------------------- */
-/* GIFTS */
+/* GIFTS (ESTILO OLIVA PREMIUM) */
 /* ----------------------------- */
 
 .gifts{
-padding:120px 20px;
-text-align:center;
-background:#0f0f0f;
-}
-
-.gifts-title{
-font-size:36px;
-letter-spacing:4px;
-margin-bottom:40px;
-font-weight:500;
+  padding:140px 20px;
+  text-align:center;
+  background:#F8FBCA; /* mismo que timeline */
+  color:#272B00;
 }
 
 .gifts-container{
-max-width:600px;
-margin:0 auto;
+  max-width:600px;
+  margin:0 auto;
 }
 
+/* título */
+.gifts-title{
+  font-size:42px;
+  letter-spacing:2px;
+  margin-bottom:60px;
+  font-weight:400;
+  font-family:'Cormorant Garamond', serif;
+}
+
+/* textos */
 .gift-text{
-font-size:18px;
-line-height:1.7;
-margin-bottom:30px;
-opacity:0.9;
+  font-size:18px;
+  line-height:1.8;
+  margin-bottom:25px;
+  opacity:0.7;
+  font-style:italic;
 }
 
+/* botón elegante */
+.btn-gifts{
+  margin-top:20px;
+  padding:12px 28px;
+
+  border-radius:30px;
+  border:1px solid #86895D;
+
+  background:transparent;
+  color:#272B00;
+
+  font-size:14px;
+  letter-spacing:1px;
+
+  cursor:pointer;
+  transition:all .3s ease;
+}
+
+.btn-gifts:hover{
+  background:#86895D;
+  color:#fff;
+}
+
+/* caja bancaria */
 .bank-box{
-background:rgba(255,255,255,0.03);
-padding:25px;
-border-radius:12px;
+  background:rgba(134,137,93,0.08);
+  padding:30px;
+  border-radius:16px;
 
-backdrop-filter:blur(6px);
-line-height:1.8;
-font-size:14px;
+  backdrop-filter:blur(6px);
 
-box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  line-height:1.8;
+  font-size:15px;
+
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  border:1px solid rgba(134,137,93,0.2);
+
+  display:none;
+  margin-top:30px;
 }
 
+/* números de cuenta */
+.bank-box p{
+  margin:8px 0;
+}
+
+.bank-box strong{
+  display:block;
+  margin-top:10px;
+  font-size:14px;
+  opacity:0.7;
+}
+
+.bank-box p:last-child{
+  letter-spacing:1px;
+  font-size:16px;
+}
+
+/* animación suave */
+.bank-box.show{
+  display:block;
+  animation:fadeInUp 0.4s ease;
+}
+
+@keyframes fadeInUp{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 /* ----------------------------- */
 /* CLOSING */
 /* ----------------------------- */
