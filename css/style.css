@@ -501,17 +501,16 @@ gap:8px;
 }
 
 /* ----------------------------- */
-/* DRESSCODE NOTE (ELEGANTE REAL) */
+/* DRESSCODE NOTE (OLIVA LIMPIO) */
 /* ----------------------------- */
 
 .dresscode-note{
-  margin:120px auto 0;
-  padding:0 20px;
+  margin-top:120px;
   display:flex;
   justify-content:center;
 }
 
-/* caja principal */
+/* caja */
 .dresscode-note .note-box{
   max-width:520px;
   width:100%;
@@ -520,7 +519,7 @@ gap:8px;
   padding:50px 40px;
   border-radius:20px;
 
-  background:#F8FBCA; /* 🔥 mismo fondo elegante */
+  background:#F8FBCA; /* 🔥 mismo fondo del timeline */
   color:#272B00;
 
   border:1px solid rgba(134,137,93,0.25);
@@ -528,7 +527,7 @@ gap:8px;
   box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
-/* línea decorativa superior */
+/* línea decorativa */
 .dresscode-note .note-box::before{
   content:"";
   display:block;
@@ -539,7 +538,7 @@ gap:8px;
 }
 
 /* badge */
-.dresscode-note .note-badge{
+.note-badge{
   font-size:11px;
   letter-spacing:2px;
   text-transform:uppercase;
@@ -556,7 +555,7 @@ gap:8px;
 }
 
 /* subtítulo */
-.dresscode-note .note-main{
+.note-main{
   font-family:'Cormorant Garamond', serif;
   font-style:italic;
   font-size:18px;
@@ -564,15 +563,15 @@ gap:8px;
   color:#54582F;
 }
 
-/* texto principal */
-.dresscode-note .note-text{
+/* texto */
+.note-text{
   font-size:16px;
   line-height:1.7;
   margin-bottom:15px;
 }
 
-/* texto extra */
-.dresscode-note .note-extra{
+/* texto secundario */
+.note-extra{
   font-size:15px;
   line-height:1.6;
   opacity:0.8;
