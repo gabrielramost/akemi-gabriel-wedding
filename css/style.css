@@ -881,6 +881,39 @@ background:#F3F5D5;
     transform:translateY(0);
   }
 }
+
+/* fila cuenta */
+.cuenta-row{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+/* número */
+.cuenta{
+  font-size:16px;
+  letter-spacing:1px;
+  color:#272B00;
+}
+
+/* botón copiar */
+.copy-btn{
+  padding:4px 10px;
+  font-size:12px;
+  border-radius:6px;
+  border:1px solid #86895D;
+  background:transparent;
+  color:#272B00;
+  cursor:pointer;
+  transition:all .2s ease;
+}
+
+.copy-btn:hover{
+  background:#86895D;
+  color:#fff;
+}
 /* ----------------------------- */
 /* CLOSING */
 /* ----------------------------- */
