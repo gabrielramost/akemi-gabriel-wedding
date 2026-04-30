@@ -238,6 +238,20 @@ function toggleCuenta(){
 
 }
 
+function copiarTexto(btn){
+
+  const texto = btn.parentElement.querySelector(".cuenta").innerText;
+
+  navigator.clipboard.writeText(texto);
+
+  const original = btn.innerText;
+  btn.innerText = "Copiado ✓";
+
+  setTimeout(() => {
+    btn.innerText = original;
+  }, 1500);
+}
+
 // -----------------------------
 // COPIAR TEXTO (UX PRO)
 // -----------------------------
