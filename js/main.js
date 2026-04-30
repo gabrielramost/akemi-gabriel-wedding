@@ -255,6 +255,7 @@ function copiarTexto(btn){
 // -----------------------------
 // COPIAR TEXTO (UX PRO)
 // -----------------------------
+
 function copiarTexto(elemento){
 
   const texto = elemento.textContent.trim();
