@@ -174,17 +174,20 @@ gap:60px;
 /* TEXTO */
 
 .intro-text-block h2{
-font-size:48px;
-line-height:1.2;
-font-weight:500;
+  font-size:48px;
+  line-height:1.1; /* 🔥 más compacto */
+  font-weight:400;
+  letter-spacing:0.5px;
 }
 
 .intro-text-block span{
-font-family:'Great Vibes', cursive;
-font-size:72px;
-color:#86895D;
-display:block;
-margin-top:10px;
+  display:block;
+  font-family:'Great Vibes', cursive;
+  font-size:64px; /* 🔥 BAJAMOS un poco */
+  color:#86895D;
+
+  line-height:0.9; /* 🔥 CLAVE: evita hueco raro */
+  margin-top:6px;
 }
 
 .intro-text-block p{
