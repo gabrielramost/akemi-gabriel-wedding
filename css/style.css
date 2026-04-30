@@ -501,11 +501,12 @@ gap:8px;
 }
 
 /* ----------------------------- */
-/* DRESSCODE NOTE (CENTRADO PRO) */
+/* DRESSCODE NOTE (ELEGANTE REAL) */
 /* ----------------------------- */
 
 .dresscode-note{
-  margin-top:100px;
+  margin:120px auto 0;
+  padding:0 20px;
   display:flex;
   justify-content:center;
 }
@@ -516,25 +517,25 @@ gap:8px;
   width:100%;
   text-align:center;
 
-  padding:40px 30px;
-  border-radius:16px;
+  padding:50px 40px;
+  border-radius:20px;
 
-  background:rgba(255,255,255,0.35);
-  backdrop-filter:blur(6px);
+  background:#F8FBCA; /* 🔥 mismo fondo elegante */
+  color:#272B00;
 
   border:1px solid rgba(134,137,93,0.25);
 
-  box-shadow:0 15px 40px rgba(0,0,0,0.08);
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
 }
 
 /* línea decorativa superior */
 .dresscode-note .note-box::before{
   content:"";
   display:block;
-  width:60px;
+  width:50px;
   height:2px;
   background:#86895D;
-  margin:0 auto 20px auto;
+  margin:0 auto 25px auto;
 }
 
 /* badge */
@@ -550,33 +551,34 @@ gap:8px;
 /* título */
 .dresscode-note h3{
   font-family:'Cormorant Garamond', serif;
-  font-size:22px;
-  margin-bottom:12px;
-  color:#272B00;
+  font-size:24px;
+  margin-bottom:10px;
 }
 
 /* subtítulo */
 .dresscode-note .note-main{
+  font-family:'Cormorant Garamond', serif;
   font-style:italic;
-  font-size:16px;
-  margin-bottom:15px;
+  font-size:18px;
+  margin-bottom:20px;
   color:#54582F;
 }
 
 /* texto principal */
 .dresscode-note .note-text{
-  font-size:15px;
+  font-size:16px;
   line-height:1.7;
-  margin-bottom:12px;
-  opacity:0.8;
+  margin-bottom:15px;
 }
 
 /* texto extra */
 .dresscode-note .note-extra{
-  font-size:14px;
-  opacity:0.7;
+  font-size:15px;
   line-height:1.6;
+  opacity:0.8;
 }
+
+
 /* ----------------------------- */
 /* RSVP */
 /* ----------------------------- */
