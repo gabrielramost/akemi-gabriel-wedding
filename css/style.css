@@ -511,82 +511,100 @@ gap:8px;
 }
 
 /* ----------------------------- */
-/* DRESSCODE NOTE (OLIVA LIMPIO) */
+/* DRESSCODE (SECCIÓN LIMPIA) */
 /* ----------------------------- */
 
-.dresscode-note{
-  margin-top:120px;
-  display:flex;
-  justify-content:center;
-}
-
-/* caja */
-.dresscode-note .note-box{
-  max-width:520px;
-  width:100%;
-  text-align:center;
-
-  padding:50px 40px;
-  border-radius:20px;
-
-  background:#F8FBCA; /* 🔥 mismo fondo del timeline */
+.dresscode{
+  padding:140px 20px;
+  background:#BEC092; /* 🔥 oliva suave */
   color:#272B00;
-
-  border:1px solid rgba(134,137,93,0.25);
-
-  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  text-align:center;
 }
 
-/* línea decorativa */
-.dresscode-note .note-box::before{
-  content:"";
-  display:block;
-  width:50px;
-  height:2px;
-  background:#86895D;
-  margin:0 auto 25px auto;
+.dresscode-container{
+  max-width:700px;
+  margin:0 auto;
 }
 
-/* badge */
-.note-badge{
-  font-size:11px;
+/* título igual a otros */
+
+.dresscode-title{
+  font-size:42px;
   letter-spacing:2px;
-  text-transform:uppercase;
-  color:#86895D;
+  margin-bottom:40px;
+  font-weight:400;
+  line-height:1.2;
+}
+
+.dresscode-title span{
   display:block;
-  margin-bottom:10px;
+  font-family:'Great Vibes', cursive;
+  font-size:64px;
+  color:#86895D;
+  margin-top:10px;
 }
 
-/* título */
-.dresscode-note h3{
-  font-family:'Cormorant Garamond', serif;
-  font-size:24px;
-  margin-bottom:10px;
-}
+/* texto */
 
-/* subtítulo */
-.note-main{
-  font-family:'Cormorant Garamond', serif;
+.dresscode-main{
+  font-size:20px;
   font-style:italic;
-  font-size:18px;
   margin-bottom:20px;
   color:#54582F;
 }
 
-/* texto */
-.note-text{
-  font-size:16px;
-  line-height:1.7;
-  margin-bottom:15px;
-}
-
-/* texto secundario */
-.note-extra{
-  font-size:15px;
+.dresscode-text{
+  font-size:18px;
   line-height:1.6;
-  opacity:0.8;
+  margin-bottom:40px;
 }
 
+/* reglas */
+
+.dresscode-rules{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+}
+
+/* item */
+
+.rule{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  font-size:16px;
+}
+
+/* icono */
+
+.rule .icon{
+  font-size:20px;
+}
+
+/* mobile */
+
+@media (max-width:768px){
+
+  .dresscode-title{
+    font-size:34px;
+  }
+
+  .dresscode-title span{
+    font-size:48px;
+  }
+
+  .dresscode-text{
+    font-size:17px;
+  }
+
+  .rule{
+    flex-direction:column;
+    text-align:center;
+  }
+
+}
 
 /* ----------------------------- */
 /* RSVP */
