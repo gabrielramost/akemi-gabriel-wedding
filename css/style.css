@@ -501,6 +501,31 @@ gap:8px;
 }
 
 /* ----------------------------- */
+/* TIMELINE NOTE (DRESSCODE) */
+/* ----------------------------- */
+
+.timeline-note .time{
+  visibility:hidden; /* no queremos hora */
+}
+
+.timeline-note .line{
+  background:#272B00;
+  transform:scale(0.8);
+}
+
+.timeline-note .content h3{
+  font-size:18px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  opacity:0.8;
+}
+
+.timeline-note .content p{
+  font-style:normal;
+  font-size:15px;
+  opacity:0.75;
+}
+/* ----------------------------- */
 /* RSVP */
 /* ----------------------------- */
 
