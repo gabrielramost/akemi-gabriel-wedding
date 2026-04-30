@@ -347,18 +347,19 @@
   </div>
 
 </section>
-
+  
+<!-- GIFT -->
 <section class="gifts" id="gifts">
 
   <div class="gifts-container">
 
-    <!-- TÍTULO CONSISTENTE -->
+    <!-- TÍTULO -->
     <h2 class="gifts-title">
       Regalo de
       <span>bodas</span>
     </h2>
 
-    <!-- TEXTO (NO CURSIVA EXAGERADA) -->
+    <!-- TEXTO -->
     <p class="gift-text">
       Tu presencia en este día tan especial es el mejor regalo que podríamos recibir.
     </p>
@@ -367,6 +368,7 @@
       Si deseas tener un detalle con nosotros, puedes ayudarnos a construir nuestro futuro juntos.
     </p>
 
+    <!-- BOTÓN MOSTRAR -->
     <button id="btnCuenta" class="btn-gifts" onclick="toggleCuenta()">
       Ver datos bancarios
     </button>
@@ -376,15 +378,25 @@
 
       <p class="titular">Akemi Nicole Andrade Toma</p>
 
+      <!-- BCP -->
       <p><strong>BCP (Soles)</strong></p>
-      <p class="cuenta" onclick="copiarTexto(this)">
-      19376507719022
-      </p>
-      
+
+      <div class="cuenta-row">
+        <span class="cuenta">19376507719022</span>
+        <button class="copy-btn" onclick="copiarTexto(this)">
+          Copiar
+        </button>
+      </div>
+
+      <!-- CCI -->
       <p><strong>Cuenta Interbancaria</strong></p>
-      <p class="cuenta" onclick="copiarTexto(this)">
-      00219317650771902218
-      </p>
+
+      <div class="cuenta-row">
+        <span class="cuenta">00219317650771902218</span>
+        <button class="copy-btn" onclick="copiarTexto(this)">
+          Copiar
+        </button>
+      </div>
 
     </div>
 
