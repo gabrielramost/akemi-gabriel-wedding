@@ -35,11 +35,6 @@ color:#f8f6f2;
   position:relative;
   color:white;
   overflow:hidden;
-
-  will-change: transform;
-  transform: translateZ(0);
-
-  background-attachment: scroll;
 }
 
 @supports (height: 100dvh){
@@ -1230,14 +1225,3 @@ background-position: center;
 }
   
 }
-
-html, body{
-  overscroll-behavior: none;
-}
-
-body{
-  position:relative;
-  overflow-x:hidden;
-  overscroll-behavior-y:none;
-}
-
