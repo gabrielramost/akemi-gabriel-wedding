@@ -22,10 +22,11 @@ color:#f8f6f2;
 
 .hero{
   height:100vh;
+  height:100svh; 
 
   background-image:url("../assets/img/hero.jpg");
   background-size:cover;
-  background-position: center bottom;
+  background-position:center center; 
 
   display:flex;
   justify-content:center;
