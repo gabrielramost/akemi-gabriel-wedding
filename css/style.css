@@ -501,29 +501,96 @@ gap:8px;
 }
 
 /* ----------------------------- */
-/* TIMELINE NOTE (DRESSCODE) */
+/* TIMELINE NOTE (EDITORIAL PREMIUM) */
 /* ----------------------------- */
 
+.timeline-note{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  background:transparent;
+  color:#272B00;
+}
+
+/* ocultar hora */
 .timeline-note .time{
-  visibility:hidden; /* no queremos hora */
+  width:45%;
+  visibility:hidden;
 }
 
+/* punto central elegante */
 .timeline-note .line{
-  background:#272B00;
-  transform:scale(0.8);
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:#86895D;
+  border:2px solid #F8FBCA;
+  transform:scale(0.9);
 }
 
-.timeline-note .content h3{
-  font-size:18px;
-  letter-spacing:1px;
+/* contenedor */
+.timeline-note .content{
+  width:45%;
+  text-align:left;
+}
+
+/* caja editorial */
+.note-box{
+  position:relative;
+  padding-left:20px;
+}
+
+/* línea lateral decorativa */
+.note-box::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:5px;
+  width:2px;
+  height:100%;
+  background:rgba(134,137,93,0.4);
+}
+
+/* badge pequeño */
+.note-badge{
+  font-size:11px;
+  letter-spacing:2px;
   text-transform:uppercase;
-  opacity:0.8;
+  opacity:0.6;
+  display:block;
+  margin-bottom:10px;
 }
 
-.timeline-note .content p{
-  font-style:normal;
+/* título */
+.note-box h3{
+  font-family:'Cormorant Garamond', serif;
+  font-size:20px;
+  margin-bottom:10px;
+  letter-spacing:0.5px;
+}
+
+/* texto principal */
+.note-main{
+  font-style:italic;
+  font-size:16px;
+  margin-bottom:12px;
+  opacity:0.85;
+}
+
+/* texto general */
+.note-text{
   font-size:15px;
+  line-height:1.7;
+  margin-bottom:10px;
   opacity:0.75;
+}
+
+/* texto extra */
+.note-extra{
+  font-size:14px;
+  opacity:0.7;
+  line-height:1.6;
 }
 /* ----------------------------- */
 /* RSVP */
