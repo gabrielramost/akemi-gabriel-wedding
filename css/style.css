@@ -1219,3 +1219,11 @@ background-position: center;
 }
   
 }
+
+@media (max-width:768px){
+
+  .hero{
+    background-size:100% auto; /* 🔥 evita zoom dinámico */
+  }
+
+}
