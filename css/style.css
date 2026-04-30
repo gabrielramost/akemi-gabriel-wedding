@@ -1061,6 +1061,16 @@ margin-top:20px;
 
 @media (max-width:768px){
 
+.intro-text-block h2{
+  font-size:36px;
+  line-height:1.15;
+}
+
+.intro-text-block span{
+  font-size:48px;
+  line-height:0.95;
+}
+  
 /* contenedor */
 .timeline-container{
 max-width:100%;
