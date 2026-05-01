@@ -265,13 +265,7 @@ align-items:center;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px); 
   
-  /* 🚨 Fix para evitar el renderizado negro en móviles */
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-
   box-shadow:0 20px 60px rgba(0,0,0,0.4);
-
   transition:all .3s ease;
 }
 
@@ -895,16 +889,29 @@ background:#F3F5D5;
 /* ----------------------------- */
 
 .closing{
-position:relative;
-height:100vh;
+  position:relative;
+  height:100vh;
 
-display:flex;
-align-items:center;
-justify-content:center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 
-text-align:center;
-color:white;
-overflow:hidden;
+  text-align:center;
+  color:white;
+  overflow:hidden;
+  background-color: #0f0f0f; /* Evita que se vea el hueco blanco/negro mientras carga */
+}
+
+/* Capa oscura ultraligera (no satura la GPU de Android) */
+.closing::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
 }
 
 .closing-bg{
@@ -918,14 +925,8 @@ overflow:hidden;
   background-size:cover;
   background-position:center bottom;
 
-  filter:brightness(0.6);
-  
-  /* 🚨 Fix para evitar el renderizado negro en móviles */
-  transform: translateZ(0);
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  
-  transition:transform 6s ease;
+  /* CERO FILTROS, CERO TRANSFORM 3D */
+  transition: transform 6s ease;
 }
 
 .closing:hover .closing-bg{
