@@ -112,19 +112,23 @@ transform:translateY(-3px);
 /* ----------------------------- */
 
 .intro-bg{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 
-background-image:url("../assets/img/intro.jpg");
-background-size:cover;
-background-position:center;
+  background-image:url("../assets/img/intro.jpg");
+  background-size:cover;
+  background-position:center;
 
-opacity:0.18;
-filter:blur(2px) scale(1.05);
-transition:transform 6s ease;
+  opacity:0.18;
+  /* 🚨 Corrección de sintaxis y renderizado GPU */
+  filter: blur(2px);
+  transform: scale(1.05) translateZ(0); 
+  will-change: transform;
+  
+  transition:transform 6s ease;
 }
 
 .intro:hover .intro-bg{
@@ -301,17 +305,21 @@ align-items:center;
 /* tarjetas */
 
 .detail-card{
-background:rgba(255,255,255,0.08);
-padding:40px 30px;
-border-radius:14px;
-max-width:400px;
-width:100%;
+  background:rgba(255,255,255,0.08);
+  padding:40px 30px;
+  border-radius:14px;
+  max-width:400px;
+  width:100%;
 
-backdrop-filter:blur(8px);
+  /* 🚨 Blindaje para Backdrop Filter pesado */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px); /* Soporte Safari */
+  transform: translateZ(0);
+  will-change: transform;
 
-box-shadow:0 20px 60px rgba(0,0,0,0.4);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
 
-transition:all .3s ease;
+  transition:all .3s ease;
 }
 
 .detail-card:hover{
@@ -947,18 +955,21 @@ overflow:hidden;
 }
 
 .closing-bg{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
 
-background-image:url("../assets/img/closing.jpg");
-background-size:cover;
-background-position:center bottom;
+  background-image:url("../assets/img/closing.jpg");
+  background-size:cover;
+  background-position:center bottom;
 
-filter:brightness(0.6);
-transition:transform 6s ease;
+  filter:brightness(0.6);
+  /* 🚨 Aceleración por hardware para el cierre */
+  transform: translateZ(0);
+  will-change: transform;
+  transition:transform 6s ease;
 }
 
 .closing:hover .closing-bg{
