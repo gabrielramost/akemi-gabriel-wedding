@@ -578,8 +578,10 @@ gap:8px;
 
 /* icono */
 
-.rule .icon{
-  font-size:20px;
+.rule .t-icon{
+  width:20px;
+  height:20px;
+  flex-shrink:0;
 }
 
 /* mobile */
