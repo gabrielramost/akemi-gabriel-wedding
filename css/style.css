@@ -1212,7 +1212,7 @@ gap:6px;
 
 .rsvp-container{
 flex-direction:column;
-gap:40px;
+gap:16px;
 }
 
 .rsvp-left{
@@ -1227,9 +1227,16 @@ font-size:36px;
 font-size:48px;
 }
 
-.rsvp-right{
-width:100%;
-}
+.rsvp-container{
+    flex-direction:column;
+  }
+  .rsvp-right{
+    width:100%;
+  }
+  .rsvp{
+    padding: 60px 20px;
+    min-height: auto;
+  }
 
 .rsvp-buttons{
 flex-direction:column;
