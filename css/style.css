@@ -22,7 +22,6 @@ color:#f8f6f2;
 
 .hero{
   height: 100vh;
-  /* Usamos svh para anclar la altura y evitar el resize en iOS */
   height: 100svh; 
 
   background-image: url("../assets/img/hero.jpg");
@@ -38,7 +37,12 @@ color:#f8f6f2;
   overflow: hidden;
 }
 
-/* 🚨 SE ELIMINÓ el bloque @supports con 100dvh que causaba el bug en iPhone */
+/* 🚨 Blindaje exclusivo para navegadores en iOS (Safari, Brave, Chrome) */
+@supports (-webkit-touch-callout: none) {
+  .hero {
+    height: -webkit-fill-available;
+  }
+}
 
 .hero::before{
   content:"";
