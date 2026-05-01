@@ -205,6 +205,9 @@ padding:120px 20px;
 text-align:center;
 color:white;
 overflow:hidden;
+  
+will-change: transform;
+transform: translateZ(0);
 }
 
 /* overlay oliva elegante */
@@ -262,11 +265,10 @@ align-items:center;
   max-width:400px;
   width:100%;
 
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); 
-  
-  box-shadow:0 20px 60px rgba(0,0,0,0.4);
-  transition:all .3s ease;
+  /* 🔥 SIN BLUR */
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+
+  transition:transform .3s ease;
 }
 
 .detail-card:hover{
@@ -389,19 +391,18 @@ transform:translateX(-50%);
 /* item */
 
 .timeline-item{
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:80px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:80px;
 
-opacity:0;
-transform:translateY(40px);
-transition:all 0.8s cubic-bezier(0.2,0.8,0.2,1);
+  opacity:0;
+  transform:translateY(20px); /* 🔥 menos movimiento */
+  transition:opacity 0.4s ease, transform 0.4s ease; /* 🔥 NO "all" */
 }
 
-.timeline-item.show{
-opacity:1;
-transform:translateY(0);
+.timeline-item{
+  backface-visibility: hidden;
 }
 
 /* hora */
@@ -1265,4 +1266,15 @@ background-position: center;
   .gifts-title span {
     font-size: 48px !important;
   }
+}
+
+/* ----------------------------- */
+/* PERFORMANCE FIX ANDROID */
+/* ----------------------------- */
+
+.timeline-item,
+.detail-card,
+.intro-gallery img{
+  will-change: transform, opacity;
+  transform: translateZ(0);
 }
