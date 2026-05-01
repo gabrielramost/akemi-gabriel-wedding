@@ -265,7 +265,8 @@ margin-top:10px;
 display:flex;
 flex-direction:column;
 gap:40px;
-align-items:center;
+align-items:stretch;
+justify-content:center;
 }
 
 /* tarjetas */
@@ -1062,10 +1063,14 @@ background-position:center 85%;
 .details-container{
 flex-direction:row;
 justify-content:center;
+align-items:stretch;
 }
 
 .detail-card{
 max-width:320px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 }
 
 }
