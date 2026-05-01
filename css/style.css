@@ -1330,3 +1330,29 @@ background-position: center;
   }
 }
 
+/* ----------------------------- */
+/* WEBP — FONDOS OPTIMIZADOS     */
+/* ----------------------------- */
+@supports (background-image: url("x.webp")) {
+
+  .hero {
+    background-image: url("../assets/img/hero.webp");
+  }
+
+  .details {
+    background-image: url("../assets/img/intro.webp");
+  }
+
+  .rsvp {
+    background:
+      linear-gradient(rgba(248,251,202,0.65), rgba(248,251,202,0.65)),
+      url("../assets/img/rsvp2.webp");
+    background-size: cover;
+    background-position: center 70%;
+  }
+
+  .closing-bg {
+    background-image: url("../assets/img/closing.webp");
+  }
+
+}
