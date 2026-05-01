@@ -123,10 +123,12 @@ transform:translateY(-3px);
   background-position:center;
 
   opacity:0.18;
-  /* 🚨 Corrección de sintaxis y renderizado GPU */
   filter: blur(2px);
+  
+  /* 🚨 Fix para evitar el renderizado negro en móviles */
   transform: scale(1.05) translateZ(0); 
-  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
   
   transition:transform 6s ease;
 }
@@ -311,11 +313,13 @@ align-items:center;
   max-width:400px;
   width:100%;
 
-  /* 🚨 Blindaje para Backdrop Filter pesado */
   backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px); /* Soporte Safari */
+  -webkit-backdrop-filter: blur(8px); 
+  
+  /* 🚨 Fix para evitar el renderizado negro en móviles */
   transform: translateZ(0);
-  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 
   box-shadow:0 20px 60px rgba(0,0,0,0.4);
 
@@ -966,9 +970,12 @@ overflow:hidden;
   background-position:center bottom;
 
   filter:brightness(0.6);
-  /* 🚨 Aceleración por hardware para el cierre */
+  
+  /* 🚨 Fix para evitar el renderizado negro en móviles */
   transform: translateZ(0);
-  will-change: transform;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
   transition:transform 6s ease;
 }
 
