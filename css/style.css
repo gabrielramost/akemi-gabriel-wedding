@@ -12,8 +12,9 @@ scroll-behavior:smooth;
 body{
 font-family:'Playfair Display', serif;
 overflow-x:hidden;
-background:#0f0f0f;
+background:#F8FBCA; /* 🔥 Si la imagen tarda en cargar, se verá crema, no negro */
 color:#f8f6f2;
+-webkit-tap-highlight-color: transparent; /* Quita el cuadro azul al tocar botones en Android */
 }
 
 /* ----------------------------- */
@@ -714,12 +715,10 @@ background:#F3F5D5;
   color: rgba(0,0,0,0.65);
   margin-bottom: 8px;
 
-  background: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.85); /* Fondo más sólido, sin blur */
   padding: 6px 12px;
   border-radius: 8px;
   display: inline-block;
-
-  backdrop-filter: blur(4px);
 }
 
 /* ----------------------------- */
@@ -790,11 +789,11 @@ background:#F3F5D5;
 
 /* caja bancaria (🔥 FIX REAL) */
 .bank-box{
-  background:rgba(134,137,93,0.08);
+  background:rgba(134,137,93,0.15); /* Fondo un poco más oscuro para suplir el blur */
   padding:30px;
   border-radius:16px;
 
-  backdrop-filter:blur(6px);
+  /* 🔥 Eliminamos el backdrop-filter */
 
   line-height:1.8;
   font-size:15px;
@@ -804,7 +803,6 @@ background:#F3F5D5;
 
   margin-top:30px;
 
-  /* 🔥 CLAVE PARA ANIMACIÓN */
   opacity:0;
   max-height:0;
   overflow:hidden;
