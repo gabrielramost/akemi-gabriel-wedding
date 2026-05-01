@@ -120,7 +120,7 @@ function renderInvitado(invitado) {
 
   const cupos = document.getElementById("cupos");
   if (cupos) {
-    cupos.textContent = invitado.pases + " asiento(s)";
+    cupos.textContent = invitado.pases;
   }
 
   let html = `
