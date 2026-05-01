@@ -1257,3 +1257,59 @@ background-position: center;
 }
   
 }
+
+/* ----------------------------- */
+/* SISTEMA VISUAL UNIFICADO DE TÍTULOS */
+/* ----------------------------- */
+.intro-text-block h2,
+.details-title,
+.timeline-title,
+.dresscode-title,
+.rsvp-left h2,
+.gifts-title {
+  font-size: 44px; /* Unifica el tamaño base de Desktop */
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 1.5px;
+}
+
+.intro-text-block span,
+.details-title span,
+.timeline-title span,
+.dresscode-title span,
+.rsvp-left span,
+.gifts-title span {
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 64px; /* Unifica el tamaño de la tipografía cursiva */
+  color: #86895D; /* Tono oliva estándar */
+  line-height: 0.9;
+  margin-top: 8px;
+}
+
+/* Excepción de legibilidad: El fondo oscuro de Details requiere el texto en color claro */
+.details-title span {
+  color: #F8FBCA !important;
+}
+
+/* Unificación estricta para Mobile */
+@media (max-width: 768px) {
+  .intro-text-block h2,
+  .details-title,
+  .timeline-title,
+  .dresscode-title,
+  .rsvp-left h2,
+  .gifts-title {
+    font-size: 34px !important;
+    line-height: 1.2 !important;
+  }
+  
+  .intro-text-block span,
+  .details-title span,
+  .timeline-title span,
+  .dresscode-title span,
+  .rsvp-left span,
+  .gifts-title span {
+    font-size: 48px !important;
+  }
+}
