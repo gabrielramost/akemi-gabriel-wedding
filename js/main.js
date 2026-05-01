@@ -67,20 +67,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
     input.addEventListener("input", () => {
 
-      const valor = input.value.toLowerCase();
+      const valor = input.value.toLowerCase().trim();
 
+      // FIX: resetear estado al borrar el campo
       if (valor.length < 2) {
         resultado.innerHTML = "";
+        invitadoSeleccionado = null;
+        nombreBuscado = null;
         if (help) help.textContent = "Escribe tu nombre y apellido";
         return;
       }
 
-      // eliminar duplicados
-      const coincidencias = [...new Map(
-        invitadosBusqueda.map(i => [i.nombre, i])
-      ).values()].filter(i =>
-        i.nombre.toLowerCase().includes(valor)
-      );
+      // FIX: el filtro de duplicados ahora va DESPUÉS del .filter(),
+      // no antes. Así no perdemos acompañantes que comparten nombre
+      // con un titular de otra familia.
+      const vistos = new Set();
+      const coincidencias = invitadosBusqueda
+        .filter(i => i.nombre.toLowerCase().includes(valor))
+        .filter(i => {
+          if (vistos.has(i.nombre)) return false;
+          vistos.add(i.nombre);
+          return true;
+        });
 
       if (coincidencias.length === 0) {
         resultado.innerHTML = "";
@@ -105,23 +113,21 @@ document.addEventListener("DOMContentLoaded", () => {
 // -----------------------------
 // RENDER INVITADO
 // -----------------------------
-function renderInvitado(invitado){
+function renderInvitado(invitado) {
 
   const resultado = document.getElementById("resultado");
-
   if (!resultado) return;
 
-  // actualizar cupos
   const cupos = document.getElementById("cupos");
   if (cupos) {
     cupos.textContent = invitado.pases + " asiento(s)";
   }
 
   let html = `
-  <h3>${nombreBuscado}</h3>
-  <small>Invitación de ${invitado.nombre}</small>
-  <p>Tienes ${invitado.pases} pase(s)</p>
-  <div class="asistentes">
+    <h3>${nombreBuscado}</h3>
+    <small>Invitación de ${invitado.nombre}</small>
+    <p>Tienes ${invitado.pases} pase(s)</p>
+    <div class="asistentes">
   `;
 
   // titular
@@ -142,9 +148,8 @@ function renderInvitado(invitado){
     `;
   });
 
-  // extras
+  // pases extras sin nombre asignado
   const faltantes = invitado.pases - (1 + invitado.acompanantes.length);
-
   for (let i = 0; i < faltantes; i++) {
     html += `
       <label>
@@ -162,10 +167,10 @@ function renderInvitado(invitado){
 // -----------------------------
 // SELECCIONAR INVITADO
 // -----------------------------
-function seleccionarInvitado(nombre){
+function seleccionarInvitado(nombre) {
 
-  nombreBuscado = nombre; // 👈 NUEVO
-  
+  nombreBuscado = nombre;
+
   const data = invitadosBusqueda.find(i => i.nombre === nombre);
   if (!data) return;
 
@@ -174,13 +179,16 @@ function seleccionarInvitado(nombre){
 
   invitadoSeleccionado = invitado;
 
+  // FIX: limpiar el input para que quede en estado neutro
+  // y el usuario sepa que su selección fue registrada
+  const input = document.querySelector(".rsvp-right input");
+  if (input) input.value = nombre;
+
   const resultado = document.getElementById("resultado");
   if (resultado) resultado.innerHTML = "";
 
   const help = document.getElementById("rsvp-help");
-  if (help) {
-    help.textContent = "Marca quiénes asistirán y confirma";
-  }
+  if (help) help.textContent = "Marca quiénes asistirán y confirma";
 
   renderInvitado(invitado);
 }
@@ -188,9 +196,9 @@ function seleccionarInvitado(nombre){
 // -----------------------------
 // RSVP WHATSAPP
 // -----------------------------
-function confirmar(destino){
+function confirmar(destino) {
 
-  if(!invitadoSeleccionado){
+  if (!invitadoSeleccionado) {
     alert("Busca tu nombre primero");
     return;
   }
@@ -200,83 +208,80 @@ function confirmar(destino){
     : "51983545543";
 
   const checks = document.querySelectorAll(".asistentes input:checked");
-
   const total = checks.length;
+
+  if (total === 0) {
+    alert("Selecciona al menos un asistente");
+    return;
+  }
 
   const nombres = Array.from(checks).map(c =>
     c.parentElement.textContent.trim()
   );
 
-  const mensaje = `Hola! Soy ${invitadoSeleccionado.nombre}.
-Confirmo mi asistencia.
-
-Asistiremos ${total} persona(s):
-- ${nombres.join("\n- ")}`;
+  const mensaje =
+    `Hola! Soy ${invitadoSeleccionado.nombre}.\n` +
+    `Confirmo mi asistencia.\n\n` +
+    `Asistiremos ${total} persona(s):\n` +
+    `- ${nombres.join("\n- ")}`;
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
   window.open(url, "_blank");
 }
 
 // -----------------------------
-// MOSTRAR CUENTA
+// MOSTRAR CUENTA BANCARIA
 // -----------------------------
-function toggleCuenta(){
+function toggleCuenta() {
 
   const box = document.getElementById("bankBox");
   const btn = document.getElementById("btnCuenta");
 
-  if(!box) return;
+  if (!box) return;
 
   box.classList.toggle("show");
 
-  if(box.classList.contains("show")){
-    btn.textContent = "Ocultar datos bancarios";
-  } else {
-    btn.textContent = "Ver datos bancarios";
-  }
-
-}
-
-function copiarTexto(btn){
-
-  const texto = btn.parentElement.querySelector(".cuenta").innerText;
-
-  navigator.clipboard.writeText(texto);
-
-  const original = btn.innerText;
-  btn.innerText = "Copiado ✓";
-
-  setTimeout(() => {
-    btn.innerText = original;
-  }, 1500);
+  btn.textContent = box.classList.contains("show")
+    ? "Ocultar datos bancarios"
+    : "Ver datos bancarios";
 }
 
 // -----------------------------
-// COPIAR TEXTO (UX PRO)
+// COPIAR TEXTO (versión unificada)
+// FIX: había dos declaraciones de copiarTexto con firmas distintas.
+// Esta versión única acepta el elemento clickeado (el botón .copy-btn)
+// y busca el .cuenta hermano para copiar su texto.
+// En el HTML debe llamarse: onclick="copiarTexto(this)"
 // -----------------------------
+function copiarTexto(elemento) {
 
-function copiarTexto(elemento){
+  // Soporta dos casos:
+  // 1. Se pasa el botón .copy-btn → busca .cuenta en el mismo .cuenta-row
+  // 2. Se pasa directamente el elemento con el texto (legacy)
+  const fila = elemento.closest(".cuenta-row");
+  const texto = fila
+    ? fila.querySelector(".cuenta")?.textContent.trim()
+    : elemento.textContent.trim();
 
-  const texto = elemento.textContent.trim();
+  if (!texto) return;
 
   navigator.clipboard.writeText(texto)
     .then(() => {
 
-      // feedback visual
-      const original = elemento.textContent;
+      // Feedback visual en el botón, no en el texto de la cuenta
+      const btn = fila ? fila.querySelector(".copy-btn") : elemento;
+      const original = btn.textContent;
 
-      elemento.textContent = "Copiado ✔";
-      elemento.style.color = "#86895D";
+      btn.textContent = "Copiado ✔";
+      btn.style.color = "#86895D";
 
       setTimeout(() => {
-        elemento.textContent = original;
-        elemento.style.color = "";
+        btn.textContent = original;
+        btn.style.color = "";
       }, 1500);
 
     })
     .catch(() => {
-      alert("No se pudo copiar");
+      alert("No se pudo copiar. Cópialo manualmente.");
     });
-
 }
