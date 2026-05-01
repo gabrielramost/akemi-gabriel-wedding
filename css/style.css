@@ -1076,7 +1076,7 @@ max-height:200px;
 margin-top:20px;
 }
 
-
+} /* 🚨 ESTA ES LA LLAVE QUE FALTABA Y QUE ROMPÍA EL DESKTOP */
 
 @media (max-width:768px){
 
