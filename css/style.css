@@ -675,6 +675,16 @@ margin-top:20px;
 font-size:18px;
 }
 
+@media (max-width:768px){
+  .rsvp-left p{
+    margin-top:10px;
+    margin-bottom:0;
+  }
+  .rsvp-right{
+    margin-top:0;
+  }
+}
+
 /* derecha */
 
 .rsvp-right input{
