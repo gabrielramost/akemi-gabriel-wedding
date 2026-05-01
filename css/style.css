@@ -21,27 +21,24 @@ color:#f8f6f2;
 /* ----------------------------- */
 
 .hero{
-  height:100vh;
-  height:100svh; 
+  height: 100vh;
+  /* Usamos svh para anclar la altura y evitar el resize en iOS */
+  height: 100svh; 
 
-  background-image:url("../assets/img/hero.jpg");
-  background-size:cover;
-  background-position:center center; 
+  background-image: url("../assets/img/hero.jpg");
+  background-size: cover;
+  background-position: center center; 
 
-  display:flex;
-  justify-content:center;
-  align-items:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  position:relative;
-  color:white;
-  overflow:hidden;
+  position: relative;
+  color: white;
+  overflow: hidden;
 }
 
-@supports (height: 100dvh){
-  .hero{
-    height:100dvh;
-  }
-}
+/* 🚨 SE ELIMINÓ el bloque @supports con 100dvh que causaba el bug en iPhone */
 
 .hero::before{
   content:"";
