@@ -316,8 +316,9 @@ text-align:left;
 
 .detail-line p{
 margin:0;
-font-size:15px;
+font-size:17px;
 opacity:0.9;
+line-height:1.5;
 }
 
 /* iconos */
@@ -446,9 +447,9 @@ transform:translateY(0);
 .time{
 width:45%;
 text-align:right;
-font-size:13px;
+font-size:15px;
 letter-spacing:2px;
-opacity:0.6;
+opacity:0.8;
 }
 
 /* punto */
@@ -483,8 +484,9 @@ letter-spacing:0.5px;
 }
 
 .content p{
-opacity:0.6;
+opacity:0.75;
 font-style:italic;
+font-size:15px;
 }
 
 .t-icon{
@@ -1143,11 +1145,11 @@ position:relative;
 .time{
 width:auto;
 text-align:left;
-font-size:12px;
+font-size:14px;
 letter-spacing:2px;
 margin-left:40px;
 margin-bottom:6px;
-opacity:0.5;
+opacity:0.75;
 }
 
 /* punto alineado con eje */
