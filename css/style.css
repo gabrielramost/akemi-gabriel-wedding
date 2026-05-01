@@ -1267,10 +1267,11 @@ background-position: center;
 .dresscode-title,
 .rsvp-left h2,
 .gifts-title {
-  font-size: 44px; /* Unifica el tamaño base de Desktop */
-  font-weight: 400;
-  line-height: 1.15;
-  letter-spacing: 1.5px;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 44px !important; 
+  font-weight: 400 !important;
+  line-height: 1.15 !important;
+  letter-spacing: 1.5px !important;
 }
 
 .intro-text-block span,
@@ -1279,15 +1280,14 @@ background-position: center;
 .dresscode-title span,
 .rsvp-left span,
 .gifts-title span {
-  display: block;
-  font-family: 'Great Vibes', cursive;
-  font-size: 64px; /* Unifica el tamaño de la tipografía cursiva */
-  color: #86895D; /* Tono oliva estándar */
-  line-height: 0.9;
-  margin-top: 8px;
+  display: block !important;
+  font-family: 'Great Vibes', cursive !important;
+  font-size: 64px !important;
+  line-height: 0.9 !important;
+  margin-top: 8px !important;
 }
 
-/* Excepción de legibilidad: El fondo oscuro de Details requiere el texto en color claro */
+/* Excepción de legibilidad (Fondo oscuro) */
 .details-title span {
   color: #F8FBCA !important;
 }
