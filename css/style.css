@@ -450,7 +450,7 @@ transform:translateY(0);
 .time{
 width:45%;
 text-align:right;
-font-size:17px;
+font-size:19px;
 letter-spacing:2px;
 opacity:0.8;
 }
@@ -489,7 +489,7 @@ letter-spacing:0.5px;
 .content p{
 opacity:0.75;
 font-style:italic;
-font-size:16px;
+font-size:17px;
 }
 
 .t-icon{
@@ -1148,7 +1148,7 @@ position:relative;
 .time{
 width:auto;
 text-align:left;
-font-size:17px;
+font-size:19px;
 letter-spacing:2px;
 margin-left:40px;
 margin-bottom:6px;
