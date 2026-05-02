@@ -44,7 +44,7 @@ const invitados = [
 
 { nombre: "Sara Timaná", pases: 4, acompanantes: ["Robert Malca", "María Fe Malca", "Claudia Malca"] },
 
-{ nombre: "Elvia Cruz", pases: 5, acompanantes: ["Jonathan Cruz", "César Timaná Yovera", "César Timaná Cruz", "Camila Timaná] },
+{ nombre: "Elvia Cruz", pases: 5, acompanantes: ["Jonathan Cruz", "César Timaná Yovera", "César Timaná Cruz", "Camila Timaná"] },
 
 { nombre: "César Timaná Lluncor", pases: 1, acompanantes: [] },
 
