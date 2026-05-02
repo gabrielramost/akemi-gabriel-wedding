@@ -812,8 +812,8 @@ body {
   padding: 12px 28px;
   border-radius: 30px;
   border: 1px solid #86895D;
-  background: transparent;
-  color: #272B00;
+  background: #272B00;
+  color: #F8FBCA;
   font-size: 14px;
   letter-spacing: 1px;
   cursor: pointer;
