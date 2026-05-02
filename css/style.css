@@ -793,7 +793,7 @@ background:#F3F5D5;
 /* ----------------------------- */
 
 .gifts{
-  padding:140px 20px;
+  padding:80px 20px;
   text-align:center;
   background:#F8FBCA;
   color:#272B00;
@@ -808,7 +808,7 @@ background:#F3F5D5;
 .gifts-title{
   font-size:42px;
   letter-spacing:2px;
-  margin-bottom:100px;
+  margin-bottom:40px;
   font-weight:400;
   line-height:1.2;
 }
