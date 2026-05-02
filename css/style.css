@@ -858,42 +858,31 @@ background:#F3F5D5;
 /* caja bancaria */
 .bank-box{
   background:rgba(134,137,93,0.08);
-  padding:30px;
+  padding:0;
   border-radius:16px;
-
-  /* FIX CRÍTICO: eliminado backdrop-filter. En un fondo plano (#F8FBCA)
-     no aporta ningún efecto visual perceptible y forzaba una capa de composición. */
-
   line-height:1.8;
   font-size:15px;
-
-  box-shadow:0 20px 60px rgba(0,0,0,0.08);
-  border:1px solid rgba(134,137,93,0.2);
-
-  margin-top:30px;
-
-  /* FIX: reemplazamos la animación de max-height (causa reflow en cada frame)
-     por una combinación de opacity + transform que corre 100% en GPU.
-     El elemento usa visibility:hidden + pointer-events:none cuando está cerrado
-     para que no ocupe espacio en el DOM de forma visible.
-     NOTA: requiere añadir 'display:none' o 'visibility:hidden' via JS al colapsar,
-     ya que CSS puro con max-height:0 causaba el lag. */
+  border:1px solid transparent;
+  margin-top:0;
+  height:0;
+  overflow:hidden;
   opacity:0;
   transform: translateY(8px);
-  visibility: hidden;
   pointer-events: none;
-  /* FIX: transition solo en las propiedades que se animan en GPU */
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+  transition: opacity 0.4s ease, transform 0.4s ease, height 0s linear 0.4s, margin-top 0s linear 0.4s, padding 0s linear 0.4s;
 }
 
 /* estado visible */
 .bank-box.show{
   opacity:1;
   transform: translateY(0);
-  visibility: visible;
   pointer-events: auto;
   padding:30px;
-  transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0s;
+  height:auto;
+  margin-top:30px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.08);
+  border:1px solid rgba(134,137,93,0.2);
+  transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 /* contenido */
@@ -1117,20 +1106,15 @@ text-align:left;
 /* animación datos bancarios */
 
 .bank-box{
-opacity:0;
-visibility:hidden;
-pointer-events:none;
-transform:translateY(8px);
-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0.4s;
+  padding:0;
+  height:0;
+  margin-top:0;
 }
 
-.bank-box.visible{
-opacity:1;
-visibility:visible;
-pointer-events:auto;
-transform:translateY(0);
-transition: opacity 0.4s ease, transform 0.4s ease, visibility 0s linear 0s;
-margin-top:20px;
+.bank-box.show{
+  padding:20px;
+  height:auto;
+  margin-top:20px;
 }
 
 } /* FIN media max-width:768px */
