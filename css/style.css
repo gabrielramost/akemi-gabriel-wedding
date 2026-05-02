@@ -646,8 +646,6 @@ gap:8px;
   display:flex;
   justify-content:space-between;
   align-items:center;
-
-  min-height: 70vh;
 }
 
 .rsvp-buttons .secondary{
@@ -1213,12 +1211,14 @@ font-size:48px;
 
 .rsvp-container{
     flex-direction:column;
+    min-height: auto;
+    gap: 16px;
   }
   .rsvp-right{
     width:100%;
   }
   .rsvp{
-    padding: 60px 20px;
+    padding: 50px 20px;
     min-height: auto;
   }
 
