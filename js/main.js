@@ -136,11 +136,14 @@ function renderInvitado(invitado) {
   }
 
   let html = `
-    <h3>${nombreBuscado}</h3>
-    <small>Invitación de ${invitado.nombre}</small>
-    <p>Tienes ${invitado.pases} pase(s)</p>
-    <div class="asistentes">
-  `;
+  <h3>${nombreBuscado}</h3>
+  <small>Invitación de ${invitado.nombre}</small>
+  <p>
+    Tienes ${invitado.pases} 
+    ${invitado.pases === 1 ? "asiento" : "asientos"}
+  </p>
+  <div class="asistentes">
+`;
 
   // titular
   html += `
