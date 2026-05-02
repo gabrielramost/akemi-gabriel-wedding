@@ -7,6 +7,7 @@ let nombreBuscado = null;
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLWy-uN6qlwWCfbI6sjGnFSUqUi6H0znTB1dOPdc4vh4z4aQfT9gx_oBay6DyJ2tR0DA/exec";
 
 // Titulares que ya confirmaron (se carga al inicio)
+
 let yaConfirmados = new Set();
 
 fetch(APPS_SCRIPT_URL)
