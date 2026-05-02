@@ -4,6 +4,18 @@
 let invitadoSeleccionado = null;
 let nombreBuscado = null;
 
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLWy-uN6qlwWCfbI6sjGnFSUqUi6H0znTB1dOPdc4vh4z4aQfT9gx_oBay6DyJ2tR0DA/exec";
+
+// Titulares que ya confirmaron (se carga al inicio)
+let yaConfirmados = new Set();
+
+fetch(APPS_SCRIPT_URL)
+  .then(r => r.json())
+  .then(data => {
+    yaConfirmados = new Set(data.titulares);
+  })
+  .catch(() => {}); // si falla, simplemente no bloquea
+
 // -----------------------------
 // GENERAR LISTA DE BÚSQUEDA
 // -----------------------------
@@ -203,6 +215,12 @@ function confirmar(destino) {
     return;
   }
 
+  // Verificar si este grupo ya confirmó
+  if (yaConfirmados.has(invitadoSeleccionado.nombre)) {
+    alert("Tu grupo ya confirmó asistencia. ¡Gracias!");
+    return;
+  }
+
   const numero = destino === "novia"
     ? "51945113430"
     : "51983545543";
@@ -224,6 +242,20 @@ function confirmar(destino) {
     `Confirmo mi asistencia.\n\n` +
     `Asistiremos ${total} persona(s):\n` +
     `- ${nombres.join("\n- ")}`;
+
+  // Registrar en Google Sheets
+  fetch(APPS_SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      titular: invitadoSeleccionado.nombre,
+      asistentes: nombres.join(", "),
+      total: total
+    })
+  })
+  .then(() => {
+    yaConfirmados.add(invitadoSeleccionado.nombre);
+  })
+  .catch(() => {}); // WhatsApp se abre igual aunque falle el registro
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
