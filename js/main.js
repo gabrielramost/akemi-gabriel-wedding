@@ -131,9 +131,10 @@ function renderInvitado(invitado) {
   if (!resultado) return;
 
   const cupos = document.getElementById("cupos");
-  if (cupos) {
-    cupos.textContent = invitado.pases;
-  }
+if (cupos) {
+  const cantidad = invitado.pases;
+  cupos.textContent = `${cantidad} ${cantidad === 1 ? "asiento" : "asientos"}`;
+}
 
   let html = `
   <h3>${nombreBuscado}</h3>
