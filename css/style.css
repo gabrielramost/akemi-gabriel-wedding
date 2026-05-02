@@ -223,11 +223,10 @@ body {
 }
 
 .details-title {
-  font-size: 42px;
-  letter-spacing: 2px;
-  margin-bottom: 60px;
+  font-size: 48px;
+  letter-spacing: 0.5px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .details-title span {
@@ -235,7 +234,8 @@ body {
   font-family: 'Great Vibes', cursive;
   font-size: 64px;
   color: #F8FBCA;
-  margin-top: 10px;
+   line-height: 0.9;
+  margin-top: 6px;
 }
 
 .details-container {
@@ -349,19 +349,18 @@ body {
 }
 
 .timeline-title {
-  font-size: 40px;
-  letter-spacing: 2px;
-  margin-bottom: 50px;
+  font-size: 48px;
+  letter-spacing: 0.5px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .timeline-title span {
   display: block;
   font-family: 'Great Vibes', cursive;
-  font-size: 60px;
+  font-size: 64px;
   color: #86895D;
-  margin-top: 10px;
+  margin-top: 6px;
 }
 
 .timeline-container {
@@ -519,11 +518,10 @@ body {
 }
 
 .dresscode-title {
-  font-size: 42px;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
+  font-size: 48px;
+  letter-spacing: 0.5px;
   font-weight: 400;
-  line-height: 1.2;
+  line-height: 1.1;
 }
 
 .dresscode-title span {
@@ -531,7 +529,8 @@ body {
   font-family: 'Great Vibes', cursive;
   font-size: 64px;
   color: #86895D;
-  margin-top: 10px;
+  line-height: 0.9;
+  margin-top: 6px;
 }
 
 .dresscode-main {
@@ -553,7 +552,7 @@ body {
   align-items: center;
   justify-content: center;
   gap: 12px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 @media (max-width: 768px) {
@@ -628,7 +627,9 @@ body {
 
 .rsvp-left h2 {
   font-size: 48px;
-  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+  font-weight: 400;
 }
 
 .rsvp-left span {
@@ -636,6 +637,8 @@ body {
   font-family: 'Great Vibes', cursive;
   font-size: 64px;
   color: #86895D;
+  line-height: 0.9;
+  margin-top: 6px;
 }
 
 .rsvp-left p {
@@ -784,11 +787,11 @@ body {
 }
 
 .gifts-title {
-  font-size: 42px;
-  letter-spacing: 2px;
-  margin-bottom: 40px;
+  font-size: 48px;
+  line-height: 1.1;
   font-weight: 400;
-  line-height: 1.2;
+  letter-spacing: 0.5px;
+
 }
 
 .gifts-title span {
@@ -796,16 +799,15 @@ body {
   font-family: 'Great Vibes', cursive;
   font-size: 64px;
   color: #86895D;
-  margin-top: 10px;
+  line-height: 0.9;
+  margin-top: 6px;
 }
 
 .gift-text {
+  margin-top: 20px;
   font-size: 18px;
   line-height: 1.6;
-  margin-bottom: 20px;
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 400px;
 }
 
 .btn-gifts {
@@ -980,10 +982,11 @@ body {
 }
 
 .closing-content h2 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  margin-bottom: 15px;
-  letter-spacing: 2px;
+  display: block;
+  font-family: 'Great Vibes', cursive;
+  font-size: 64px;
+  line-height: 0.9;
+  margin-top: 6px;
 }
 
 .closing-content p {
@@ -994,7 +997,7 @@ body {
 .names-final {
   margin-top: 40px;
   font-family: 'Great Vibes', cursive;
-  font-size: 48px;
+  font-size: 50px;
 }
 
 /* ----------------------------- */
