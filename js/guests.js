@@ -1,5 +1,6 @@
 const invitados = [
 
+{ nombre: "Gabriel Ramos", pases: 2, acompanantes: ["Akemi Toma"] },
 { nombre: "Henry Monzón", pases: 2, acompanantes: ["Diana Toma"] },
 { nombre: "Stephanie Monzón", pases: 2, acompanantes: ["Balbina Adrianzen"] },
 { nombre: "Josselyn Ternero", pases: 2, acompanantes: ["Esmeralda Monzón"] },
@@ -9,7 +10,7 @@ const invitados = [
 { nombre: "Tani Lezama", pases: 2, acompanantes: ["Julian Reyna"] },
 { nombre: "Ritsuko Toma", pases: 1, acompanantes: [] },
 { nombre: "Luis Toma", pases: 1, acompanantes: [] },
-{ nombre: "Mónica Toma", pases: 1, acompanantes: [] },
+{ nombre: "Monica Toma", pases: 1, acompanantes: [] },
 
 { nombre: "Julio Toma", pases: 3, acompanantes: ["Tomi Toma", "Ellen Rodriguez"] },
 { nombre: "Juan Toma", pases: 3, acompanantes: ["Yolanda Suarez", "Mariana Toma"] },
@@ -47,9 +48,9 @@ const invitados = [
 
 { nombre: "Elvia Cruz", pases: 4, acompanantes: ["Jonathan Cruz", "Cesar Timaná Yovera", "César Timaná Cruz"] },
 
-{ nombre: "César Timaná Lluncor", pases: 1, acompanantes: [] },
+{ nombre: "Cesar Timaná Lluncor", pases: 1, acompanantes: [] },
 
-{ nombre: "César Cochola", pases: 3, acompanantes: ["Jonny Cochola", "Roxana Timaná"] },
+{ nombre: "Cesar Cochola", pases: 3, acompanantes: ["Jonny Cochola", "Roxana Timaná"] },
 
 { nombre: "Elva Camarena", pases: 1, acompanantes: [] },
 { nombre: "Juan Ramos", pases: 1, acompanantes: [] },
@@ -108,6 +109,6 @@ const invitados = [
 
 { nombre: "Renzo Anglas", pases: 1, acompanantes: [] },
 { nombre: "Victor Gonzales", pases: 1, acompanantes: [] },
-{ nombre: "Malú Menacho", pases: 1, acompanantes: [] }
+{ nombre: "Malu Menacho", pases: 1, acompanantes: [] }
 
 ];
