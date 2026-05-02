@@ -10,17 +10,6 @@ let nombreBuscado = null;
 
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZEPSlF1hVOi_6KJlffXumUQvvXJjAbcSKJvdvhVAR4B48iyggCeTyIZFWFybrPoV-UQ/exec";
 
-// Titulares que ya confirmaron (se carga al inicio)
-let yaConfirmados = new Set();
-
-fetch(APPS_SCRIPT_URL)
-  .then(r => r.json())
-  .then(data => {
-    if (data && Array.isArray(data.titulares)) {
-      yaConfirmados = new Set(data.titulares);
-    }
-  })
-  .catch(() => {});
 
 // -----------------------------
 // GENERAR LISTA DE BÚSQUEDA
@@ -219,11 +208,6 @@ function confirmar(destino) {
   }
 
   // Doble verificación: Set del servidor + localStorage como respaldo local
-  const clave = `confirmado_${invitadoSeleccionado.nombre}`;
-  if (yaConfirmados.has(invitadoSeleccionado.nombre) || localStorage.getItem(clave)) {
-    alert("Tu grupo ya confirmó asistencia. ¡Gracias!");
-    return;
-  }
 
   const numero = destino === "novia"
     ? "51945113430"
@@ -255,11 +239,7 @@ function confirmar(destino) {
       total: total
     })
   })
-  .then(() => {
-    yaConfirmados.add(invitadoSeleccionado.nombre);
-    localStorage.setItem(clave, "1");
-  })
-  .catch(() => {});
+  .then(() => {})
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
