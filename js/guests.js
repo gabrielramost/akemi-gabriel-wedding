@@ -7,25 +7,25 @@ const invitados = [
 { nombre: "Alonso Monzón", pases: 1, acompanantes: [] },
 
 { nombre: "Jenny Toma", pases: 4, acompanantes: ["Edwin Lezama", "María José Lezama", "Mery Toma"] },
-{ nombre: "Tani Lezama", pases: 2, acompanantes: ["Julian Reyna"] },
+{ nombre: "Roxana Lezama", pases: 2, acompanantes: ["Julian Reyna"] },
 { nombre: "Ritsuko Toma", pases: 1, acompanantes: [] },
 { nombre: "Luis Toma", pases: 1, acompanantes: [] },
 { nombre: "Monica Toma", pases: 1, acompanantes: [] },
 
 { nombre: "Julio Toma", pases: 3, acompanantes: ["Tomi Toma", "Ellen Rodriguez"] },
 { nombre: "Juan Toma", pases: 3, acompanantes: ["Yolanda Suarez", "Mariana Toma"] },
-{ nombre: "Jessica Toma", pases: 4, acompanantes: ["Mario Kiyohara", "Emiliano Kiyohara", "Bárbara Kiyohara"] },
-{ nombre: "Kio Toma", pases: 1, acompanantes: [] },
+{ nombre: "Jessica Tejada", pases: 4, acompanantes: ["Mario Kiyohara", "Emiliano Kiyohara", "Bárbara Kiyohara"] },
+{ nombre: "Kio Tejada", pases: 1, acompanantes: [] },
 
 { nombre: "Pedro Tejada", pases: 3, acompanantes: ["Lourdes Obregón", "Brenda Tejada"] },
 { nombre: "Cristopher Tejada", pases: 2, acompanantes: ["Patricia Pretel"] },
 { nombre: "Pedro André Tejada", pases: 2, acompanantes: ["Nataly Olenka García"] },
 
 { nombre: "Patricia Toma", pases: 3, acompanantes: ["Lucho Ivazeta", "Bruno Ivazeta"] },
-{ nombre: "Pedro Monzón Dueñas", pases: 2, acompanantes: ["Sarita"] },
+{ nombre: "Pedro Monzón Dueñas", pases: 2, acompanantes: ["Sara Alvarado"] },
 
-{ nombre: "Manuel Tsukuyama", pases: 2, acompanantes: ["María Higa"] },
-{ nombre: "Oscar Ibañez", pases: 2, acompanantes: ["Esposa"] },
+{ nombre: "Manuel Tsukayama", pases: 2, acompanantes: ["María Higa"] },
+{ nombre: "Oscar Ibañez", pases: 1, acompanantes: [] },
 
 { nombre: "Judith Panitz", pases: 1, acompanantes: [] },
 { nombre: "Bertha Mendez", pases: 2, acompanantes: ["Wilder Sabino"] },
