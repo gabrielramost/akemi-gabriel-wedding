@@ -1,3 +1,7 @@
+// ============================================================
+// AKEMI & GABRIEL — main.js  (Production build v2)
+// ============================================================
+
 // -----------------------------
 // ESTADO GLOBAL
 // -----------------------------
@@ -7,15 +11,16 @@ let nombreBuscado = null;
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLWy-uN6qlwWCfbI6sjGnFSUqUi6H0znTB1dOPdc4vh4z4aQfT9gx_oBay6DyJ2tR0DA/exec";
 
 // Titulares que ya confirmaron (se carga al inicio)
-
 let yaConfirmados = new Set();
 
 fetch(APPS_SCRIPT_URL)
   .then(r => r.json())
   .then(data => {
-    yaConfirmados = new Set(data.titulares);
+    if (data && Array.isArray(data.titulares)) {
+      yaConfirmados = new Set(data.titulares);
+    }
   })
-  .catch(() => {}); // si falla, simplemente no bloquea
+  .catch(() => {}); // si falla, no bloqueamos nada
 
 // -----------------------------
 // GENERAR LISTA DE BÚSQUEDA
@@ -53,9 +58,9 @@ if (typeof invitados !== "undefined") {
 // -----------------------------
 document.addEventListener("DOMContentLoaded", () => {
 
-  // -----------------------------
+  // ---------------------------
   // TIMELINE ANIMATION
-  // -----------------------------
+  // ---------------------------
   const items = document.querySelectorAll(".timeline-item");
 
   const observer = new IntersectionObserver((entries, obs) => {
@@ -65,14 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
         obs.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.2 });
+  }, { threshold: 0.15 });
 
   items.forEach(item => observer.observe(item));
 
-  // -----------------------------
+  // ---------------------------
   // RSVP BUSCADOR
-  // -----------------------------
-  const input = document.querySelector(".rsvp-right input");
+  // ---------------------------
+  const input = document.getElementById("busqueda");
   const resultado = document.getElementById("resultado");
   const help = document.getElementById("rsvp-help");
 
@@ -82,7 +87,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const valor = input.value.toLowerCase().trim();
 
-      // FIX: resetear estado al borrar el campo
       if (valor.length < 2) {
         resultado.innerHTML = "";
         invitadoSeleccionado = null;
@@ -91,9 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      // FIX: el filtro de duplicados ahora va DESPUÉS del .filter(),
-      // no antes. Así no perdemos acompañantes que comparten nombre
-      // con un titular de otra familia.
       const vistos = new Set();
       const coincidencias = invitadosBusqueda
         .filter(i => i.nombre.toLowerCase().includes(valor))
@@ -131,18 +132,19 @@ function renderInvitado(invitado) {
   const resultado = document.getElementById("resultado");
   if (!resultado) return;
 
+  // Actualizar contador de cupos en el texto del lado izquierdo
   const cupos = document.getElementById("cupos");
-if (cupos) {
-  const cantidad = invitado.pases;
-  cupos.textContent = `${cantidad} ${cantidad === 1 ? "asiento" : "asientos"}`;
-}
+  if (cupos) {
+    const cantidad = invitado.pases;
+    cupos.textContent = `${cantidad} ${cantidad === 1 ? "asiento" : "asientos"}`;
+  }
 
   let html = `
-  <h3>${nombreBuscado}</h3>
-  <small>Invitación de ${invitado.nombre}</small>
-  <p>Tienes ${invitado.pases} pase(s)</p>
-  <div class="asistentes">
-`;
+    <h3>${nombreBuscado}</h3>
+    <small>Invitación de ${invitado.nombre}</small>
+    <p>Tienes ${invitado.pases} pase(s)</p>
+    <div class="asistentes">
+  `;
 
   // titular
   html += `
@@ -174,7 +176,6 @@ if (cupos) {
   }
 
   html += `</div>`;
-
   resultado.innerHTML = html;
 }
 
@@ -193,9 +194,7 @@ function seleccionarInvitado(nombre) {
 
   invitadoSeleccionado = invitado;
 
-  // FIX: limpiar el input para que quede en estado neutro
-  // y el usuario sepa que su selección fue registrada
-  const input = document.querySelector(".rsvp-right input");
+  const input = document.getElementById("busqueda");
   if (input) input.value = nombre;
 
   const resultado = document.getElementById("resultado");
@@ -208,7 +207,7 @@ function seleccionarInvitado(nombre) {
 }
 
 // -----------------------------
-// RSVP WHATSAPP
+// CONFIRMAR — RSVP
 // -----------------------------
 function confirmar(destino) {
 
@@ -217,7 +216,6 @@ function confirmar(destino) {
     return;
   }
 
-  // Verificar si este grupo ya confirmó
   if (yaConfirmados.has(invitadoSeleccionado.nombre)) {
     alert("Tu grupo ya confirmó asistencia. ¡Gracias!");
     return;
@@ -245,7 +243,7 @@ function confirmar(destino) {
     `Asistiremos ${total} persona(s):\n` +
     `- ${nombres.join("\n- ")}`;
 
-  // Registrar en Google Sheets
+  // Registrar en Google Sheets (sin bloquear el flujo)
   fetch(APPS_SCRIPT_URL, {
     method: "POST",
     body: JSON.stringify({
@@ -257,7 +255,7 @@ function confirmar(destino) {
   .then(() => {
     yaConfirmados.add(invitadoSeleccionado.nombre);
   })
-  .catch(() => {}); // WhatsApp se abre igual aunque falle el registro
+  .catch(() => {});
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
@@ -265,6 +263,11 @@ function confirmar(destino) {
 
 // -----------------------------
 // MOSTRAR CUENTA BANCARIA
+// FIX: la animación ahora usa
+// CSS grid-template-rows (en
+// .bank-box) con un wrapper
+// .bank-box-inner. No se
+// manipula height directamente.
 // -----------------------------
 function toggleCuenta() {
 
@@ -281,17 +284,13 @@ function toggleCuenta() {
 }
 
 // -----------------------------
-// COPIAR TEXTO (versión unificada)
-// FIX: había dos declaraciones de copiarTexto con firmas distintas.
-// Esta versión única acepta el elemento clickeado (el botón .copy-btn)
-// y busca el .cuenta hermano para copiar su texto.
-// En el HTML debe llamarse: onclick="copiarTexto(this)"
+// COPIAR TEXTO
+// Uso en HTML: onclick="copiarTexto(this)"
+// El botón debe estar dentro de un .cuenta-row
+// junto al elemento .cuenta.
 // -----------------------------
 function copiarTexto(elemento) {
 
-  // Soporta dos casos:
-  // 1. Se pasa el botón .copy-btn → busca .cuenta en el mismo .cuenta-row
-  // 2. Se pasa directamente el elemento con el texto (legacy)
   const fila = elemento.closest(".cuenta-row");
   const texto = fila
     ? fila.querySelector(".cuenta")?.textContent.trim()
@@ -302,7 +301,6 @@ function copiarTexto(elemento) {
   navigator.clipboard.writeText(texto)
     .then(() => {
 
-      // Feedback visual en el botón, no en el texto de la cuenta
       const btn = fila ? fila.querySelector(".copy-btn") : elemento;
       const original = btn.textContent;
 
