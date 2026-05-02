@@ -1,5 +1,5 @@
 // ============================================================
-// AKEMI & GABRIEL — main.js  (Production build)
+// AKEMI & GABRIEL — main.js  (Production build v3)
 // ============================================================
 
 // -----------------------------
@@ -8,7 +8,7 @@
 let invitadoSeleccionado = null;
 let nombreBuscado = null;
 
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwLWy-uN6qlwWCfbI6sjGnFSUqUi6H0znTB1dOPdc4vh4z4aQfT9gx_oBay6DyJ2tR0DA/exec";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwZEPSlF1hVOi_6KJlffXumUQvvXJjAbcSKJvdvhVAR4B48iyggCeTyIZFWFybrPoV-UQ/exec";
 
 // Titulares que ya confirmaron (se carga al inicio)
 let yaConfirmados = new Set();
@@ -20,7 +20,7 @@ fetch(APPS_SCRIPT_URL)
       yaConfirmados = new Set(data.titulares);
     }
   })
-  .catch(() => {}); // si falla, no bloqueamos nada
+  .catch(() => {});
 
 // -----------------------------
 // GENERAR LISTA DE BÚSQUEDA
@@ -132,7 +132,6 @@ function renderInvitado(invitado) {
   const resultado = document.getElementById("resultado");
   if (!resultado) return;
 
-  // Actualizar contador de cupos en el texto del lado izquierdo
   const cupos = document.getElementById("cupos");
   if (cupos) {
     const cantidad = invitado.pases;
@@ -216,7 +215,9 @@ function confirmar(destino) {
     return;
   }
 
-  if (yaConfirmados.has(invitadoSeleccionado.nombre)) {
+  // Doble verificación: Set del servidor + localStorage como respaldo local
+  const clave = `confirmado_${invitadoSeleccionado.nombre}`;
+  if (yaConfirmados.has(invitadoSeleccionado.nombre) || localStorage.getItem(clave)) {
     alert("Tu grupo ya confirmó asistencia. ¡Gracias!");
     return;
   }
@@ -238,8 +239,7 @@ function confirmar(destino) {
   );
 
   const mensaje =
-    `Hola! Soy ${invitadoSeleccionado.nombre}.\n` +
-    `Confirmo mi asistencia.\n\n` +
+    `Hola! Confirmo mi asistencia.\n\n` +
     `Asistiremos ${total} persona(s):\n` +
     `- ${nombres.join("\n- ")}`;
 
@@ -254,6 +254,7 @@ function confirmar(destino) {
   })
   .then(() => {
     yaConfirmados.add(invitadoSeleccionado.nombre);
+    localStorage.setItem(clave, "1");
   })
   .catch(() => {});
 
@@ -263,11 +264,6 @@ function confirmar(destino) {
 
 // -----------------------------
 // MOSTRAR CUENTA BANCARIA
-// FIX: la animación ahora usa
-// CSS grid-template-rows (en
-// .bank-box) con un wrapper
-// .bank-box-inner. No se
-// manipula height directamente.
 // -----------------------------
 function toggleCuenta() {
 
@@ -286,8 +282,6 @@ function toggleCuenta() {
 // -----------------------------
 // COPIAR TEXTO
 // Uso en HTML: onclick="copiarTexto(this)"
-// El botón debe estar dentro de un .cuenta-row
-// junto al elemento .cuenta.
 // -----------------------------
 function copiarTexto(elemento) {
 
