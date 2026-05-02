@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     input.addEventListener("input", () => {
 
-      const valor = input.value.toLowerCase().trim();
+      const valor = input.value.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
       if (valor.length < 2) {
         resultado.innerHTML = "";
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const vistos = new Set();
       const coincidencias = invitadosBusqueda
-        .filter(i => i.nombre.toLowerCase().includes(valor))
+        .filter(i =>  i.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(valor))
         .filter(i => {
           if (vistos.has(i.nombre)) return false;
           vistos.add(i.nombre);
