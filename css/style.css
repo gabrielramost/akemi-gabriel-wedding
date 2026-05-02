@@ -264,7 +264,6 @@ body {
 }
 
 .detail-card h3 {
-  font-family: 'Cormorant Garamond', serif;
   font-size: 26px;
   margin-bottom: 20px;
   letter-spacing: 1px;
@@ -281,7 +280,7 @@ body {
 
 .detail-line p {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   opacity: 0.9;
   line-height: 1.5;
 }
@@ -431,7 +430,7 @@ body {
 
 .content h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
+  font-size: 20px;
   letter-spacing: 0.5px;
   display: flex;
   align-items: center;
@@ -441,7 +440,7 @@ body {
 .content p {
   opacity: 0.75;
   font-style: italic;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .t-icon {
