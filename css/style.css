@@ -507,7 +507,7 @@ body {
 
 .dresscode {
   padding: 50px 20px;
-  background: #D4DE95;
+  background: #BAC095;
   color: #272B00;
   text-align: center;
 }
@@ -821,8 +821,8 @@ body {
 }
 
 .btn-gifts:hover {
-  background: #86895D;
-  color: #fff;
+  background: #272B00;
+  color: #F8FBCA;
 }
 
 .bank-box {
