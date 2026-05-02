@@ -226,6 +226,7 @@ body {
   font-size: 48px;
   letter-spacing: 0.5px;
   font-weight: 400;
+  margin-bottom:120px;
   line-height: 1.1;
 }
 
@@ -353,6 +354,7 @@ body {
   letter-spacing: 0.5px;
   font-weight: 400;
   line-height: 1.1;
+  margin-bottom:120px;
 }
 
 .timeline-title span {
@@ -384,7 +386,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
   opacity: 0;
   transform: translateY(40px);
   transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1),
@@ -522,6 +524,7 @@ body {
   letter-spacing: 0.5px;
   font-weight: 400;
   line-height: 1.1;
+  margin-bottom:120px;
 }
 
 .dresscode-title span {
@@ -803,11 +806,12 @@ body {
   margin-top: 6px;
 }
 
-.gift-text {
-  margin-top: 20px;
-  font-size: 18px;
-  line-height: 1.6;
-  max-width: 400px;
+.gift-text{
+  font-size:18px;
+  line-height:1.9;        
+  max-width:520px;        
+  margin:0 auto 25px;     
+  opacity:0.9;
 }
 
 .btn-gifts {
@@ -984,9 +988,11 @@ body {
 .closing-content h2 {
   display: block;
   font-family: 'Great Vibes', cursive;
-  font-size: 64px;
-  line-height: 0.9;
+  font-size: 60px;       
+  font-weight: 400;     
+  line-height: 1.1;      
   margin-top: 6px;
+  margin-bottom: 20px;   
 }
 
 .closing-content p {
