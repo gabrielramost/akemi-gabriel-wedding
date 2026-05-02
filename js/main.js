@@ -85,40 +85,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     input.addEventListener("input", () => {
 
-      const valor = input.value.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-
-      if (valor.length < 2) {
-        resultado.innerHTML = "";
-        invitadoSeleccionado = null;
-        nombreBuscado = null;
-        if (help) help.textContent = "Escribe tu nombre y apellido";
-        return;
-      }
-
-      const vistos = new Set();
-      const coincidencias = invitadosBusqueda
-        .filter(i =>  i.nombre.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").includes(valor))
-        .filter(i => {
-          if (vistos.has(i.nombre)) return false;
-          vistos.add(i.nombre);
-          return true;
-        });
-
-      if (coincidencias.length === 0) {
-        resultado.innerHTML = "";
-        if (help) help.textContent = "No encontramos tu nombre";
-        return;
-      }
-
-      if (help) help.textContent = "Selecciona tu nombre de la lista";
-
-      resultado.innerHTML = coincidencias.map(i => `
-        <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
-          ${i.nombre}
-        </div>
-      `).join("");
-
-    });
+    const normalizar = str =>
+      str.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  
+    const valor = normalizar(input.value);
+  
+    if (valor.length < 2) {
+      resultado.innerHTML = "";
+      invitadoSeleccionado = null;
+      nombreBuscado = null;
+      if (help) help.textContent = "Escribe tu nombre y apellido";
+      return;
+    }
+  
+    const vistos = new Set();
+    const coincidencias = invitadosBusqueda
+      .filter(i => normalizar(i.nombre).includes(valor))
+      .filter(i => {
+        if (vistos.has(i.nombre)) return false;
+        vistos.add(i.nombre);
+        return true;
+      });
+  
+    if (coincidencias.length === 0) {
+      resultado.innerHTML = "";
+      if (help) help.textContent = "No encontramos tu nombre";
+      return;
+    }
+  
+    if (help) help.textContent = "Selecciona tu nombre de la lista";
+  
+    resultado.innerHTML = coincidencias.map(i => `
+      <div class="opcion" onclick='seleccionarInvitado(${JSON.stringify(i.nombre)})'>
+        ${i.nombre}
+      </div>
+    `).join("");
+  
+  });
 
   }
 
