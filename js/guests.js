@@ -8,9 +8,7 @@ const invitados = [
 
 { nombre: "Jenny Toma", pases: 4, acompanantes: ["Edwin Lezama", "María José Lezama", "Mery Toma"] },
 { nombre: "Roxana Lezama", pases: 2, acompanantes: ["Julian Reyna"] },
-{ nombre: "Ritsuko Toma", pases: 1, acompanantes: [] },
-{ nombre: "Luis Toma", pases: 1, acompanantes: [] },
-{ nombre: "Monica Toma", pases: 1, acompanantes: [] },
+{ nombre: "Ritsuko Toma", pases: 3, acompanantes: ["Luis Toma", "Mónica Toma"] },
 
 { nombre: "Julio Toma", pases: 3, acompanantes: ["Tomi Toma", "Ellen Rodriguez"] },
 { nombre: "Juan Toma", pases: 3, acompanantes: ["Yolanda Suarez", "Mariana Toma"] },
@@ -42,15 +40,15 @@ const invitados = [
 { nombre: "Victoria Acosta", pases: 1, acompanantes: [] },
 
 { nombre: "Lady Chumbile", pases: 2, acompanantes: ["Esposo"] },
-{ nombre: "Janeth Chumbile", pases: 2, acompanantes: ["Esposo"] },
+{ nombre: "Janeth Chumbile", pases: 2, acompanantes: ["Charlie Days"] },
 
 { nombre: "Sara Timaná", pases: 4, acompanantes: ["Robert Malca", "María Fe Malca", "Claudia Malca"] },
 
-{ nombre: "Elvia Cruz", pases: 4, acompanantes: ["Jonathan Cruz", "Cesar Timaná Yovera", "César Timaná Cruz"] },
+{ nombre: "Elvia Cruz", pases: 5, acompanantes: ["Jonathan Cruz", "César Timaná Yovera", "César Timaná Cruz", "Camila Timaná] },
 
-{ nombre: "Cesar Timaná Lluncor", pases: 1, acompanantes: [] },
+{ nombre: "César Timaná Lluncor", pases: 1, acompanantes: [] },
 
-{ nombre: "Cesar Cochola", pases: 3, acompanantes: ["Jonny Cochola", "Roxana Timaná"] },
+{ nombre: "César Cochola", pases: 3, acompanantes: ["Jonny Cochola", "Roxana Timaná"] },
 
 { nombre: "Elva Camarena", pases: 1, acompanantes: [] },
 { nombre: "Juan Ramos", pases: 1, acompanantes: [] },
@@ -62,9 +60,9 @@ const invitados = [
 { nombre: "Patricia Balbuena", pases: 1, acompanantes: [] },
 { nombre: "Diana Tamashiro", pases: 1, acompanantes: [] },
 
-{ nombre: "Christina Sanchez", pases: 2, acompanantes: ["Luis Mesías"] },
+{ nombre: "Cristina Sanchez", pases: 2, acompanantes: ["Luis Mesías"] },
 
-{ nombre: "Karen Calderon", pases: 1, acompanantes: [] },
+{ nombre: "Karen Calderón", pases: 1, acompanantes: [] },
 { nombre: "Sandra Manrique", pases: 1, acompanantes: [] },
 { nombre: "Ivan Castillo", pases: 1, acompanantes: [] },
 
@@ -95,7 +93,7 @@ const invitados = [
 { nombre: "Katia Uriol", pases: 1, acompanantes: [] },
 { nombre: "Hanks Sarmiento", pases: 1, acompanantes: [] },
 { nombre: "Berenice Anamaria", pases: 1, acompanantes: [] },
-{ nombre: "Jose Soto", pases: 1, acompanantes: [] },
+{ nombre: "José Soto", pases: 1, acompanantes: [] },
 
 { nombre: "Claudia García", pases: 2, acompanantes: ["Héctor Rodriguez"] },
 
@@ -109,6 +107,6 @@ const invitados = [
 
 { nombre: "Renzo Anglas", pases: 1, acompanantes: [] },
 { nombre: "Victor Gonzales", pases: 1, acompanantes: [] },
-{ nombre: "Malu Menacho", pases: 1, acompanantes: [] }
+{ nombre: "Malú Menacho", pases: 1, acompanantes: [] }
 
 ];
