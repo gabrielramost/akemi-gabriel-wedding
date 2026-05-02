@@ -646,6 +646,8 @@ gap:8px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+
+  min-height: 70vh;
 }
 
 .rsvp-buttons .secondary{
@@ -1193,9 +1195,11 @@ gap:6px;
 /* RSVP MOBILE PRO */
 
 .rsvp-container{
-flex-direction:column;
-gap:16px;
-}
+    flex-direction:column;
+    min-height: 80vh;
+    justify-content: center;
+    gap: 16px;
+  }
 
 .rsvp-left{
 text-align:center;
@@ -1209,15 +1213,11 @@ font-size:36px;
 font-size:48px;
 }
 
-.rsvp-container{
-    flex-direction:column;
-    min-height: auto;
-    gap: 16px;
-  }
   .rsvp-right{
     width:100%;
   }
-  .rsvp{
+
+.rsvp{
     padding: 50px 20px;
     min-height: auto;
   }
