@@ -1057,7 +1057,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.38);
   z-index: 1;
   pointer-events: none;
 }
@@ -1068,11 +1068,6 @@ body {
   background-image: url("../assets/img/closing.webp"), url("../assets/img/closing.jpg");
   background-size: cover;
   background-position: center bottom;
-  transition: transform 6s ease;
-}
-
-.closing:hover .closing-bg {
-  transform: scale(1.03);
 }
 
 .closing-content {
