@@ -5,7 +5,7 @@ const invitados = [
 { nombre: "Josselyn Ternero", pases: 2, acompanantes: ["Esmeralda Monzón"] },
 { nombre: "Alonso Monzón", pases: 1, acompanantes: [] },
 
-{ nombre: "Jenny Toma", pases: 4, acompanantes: ["Edwin Lezama", "María José Lezama", "Mery Toma"] },
+{ nombre: "Jenny Toma", pases: 5, acompanantes: ["Edwin Lezama", "María José Lezama", "Mery Toma", "Adicional"] },
 { nombre: "Roxana Lezama", pases: 2, acompanantes: ["Julian Reyna"] },
 { nombre: "Ritsuko Toma", pases: 3, acompanantes: ["Luis Toma", "Mónica Toma"] },
 
@@ -19,7 +19,7 @@ const invitados = [
 { nombre: "Pedro André Tejada", pases: 2, acompanantes: ["Nataly Olenka García"] },
 
 { nombre: "Patricia Toma", pases: 3, acompanantes: ["Lucho Ivazeta", "Bruno Ivazeta"] },
-{ nombre: "Pedro Monzón Dueñas", pases: 2, acompanantes: ["Sara Alvarado"] },
+{ nombre: "Paul Monzón Dueñas", pases: 2, acompanantes: ["Sara Alvarado"] },
 
 { nombre: "Manuel Tsukayama", pases: 2, acompanantes: ["María Higa"] },
 { nombre: "Oscar Ibañez", pases: 1, acompanantes: [] },
@@ -35,6 +35,8 @@ const invitados = [
 
 { nombre: "Karina Zamudio", pases: 4, acompanantes: ["Luis Román", "Irania Román", "Leandra Román"] },
 
+{ nombre: "Orfa Román", pases: 1, acompanantes: [] },
+  
 { nombre: "Abad Chumbile", pases: 2, acompanantes: ["Paulina Ramos"] },
 { nombre: "Victoria Acosta", pases: 1, acompanantes: [] },
 
@@ -62,7 +64,7 @@ const invitados = [
 { nombre: "Cristina Sanchez", pases: 2, acompanantes: ["Luis Mesías"] },
 
 { nombre: "Karen Calderón", pases: 1, acompanantes: [] },
-{ nombre: "Sandra Manrique", pases: 1, acompanantes: [] },
+{ nombre: "Sandra Manrique", pases: 2, acompanantes: ["Bruno Aquino"] },
 { nombre: "Ivan Castillo", pases: 1, acompanantes: [] },
 
 { nombre: "José Reyes", pases: 2, acompanantes: ["Gabriela Carrasco"] },
