@@ -5,6 +5,7 @@ const invitados = [
 { nombre: "Josselyn Ternero", pases: 2, acompanantes: ["Esmeralda Monzón"] },
 { nombre: "Alonso Monzón", pases: 1, acompanantes: [] },
 
+{ nombre: "Giovanni Cerrón", pases: 1, acompanantes: [] },
 { nombre: "Jenny Toma", pases: 5, acompanantes: ["Edwin Lezama", "María José Lezama", "Mery Toma", "Mateo Vera"] },
 { nombre: "Roxana Lezama", pases: 2, acompanantes: ["Julian Reyna"] },
 { nombre: "Ritsuko Toma", pases: 3, acompanantes: ["Luis Toma", "Mónica Toma"] },
