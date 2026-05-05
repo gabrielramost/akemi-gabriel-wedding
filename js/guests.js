@@ -31,7 +31,7 @@ const invitados = [
 { nombre: "Ignacio Ramos", pases: 3, acompanantes: ["María Elena Timaná", "César Ramos"] },
 
 { nombre: "Luis Salcedo", pases: 4, acompanantes: ["Urbana Ramos", "Indira Salcedo", "Keydira Salcedo"] },
-{ nombre: "Willian Delgado", pases: 2, acompanantes: ["Rosa Del Águila"] },
+{ nombre: "William Delgado", pases: 2, acompanantes: ["Rosa Del Águila"] },
 
 { nombre: "Jorge Navarro", pases: 1, acompanantes: [] },
 
