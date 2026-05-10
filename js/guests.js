@@ -1,5 +1,15 @@
 const invitados = [
 
+{ nombre: "Leandro Villalobos", pases: 2, acompanantes: ["Esposa"] },
+{ nombre: "Carolina Chirinos", pases: 1, acompanantes: [] },
+{ nombre: "Isbel García", pases: 1, acompanantes: [] },  
+{ nombre: "Malkiel Moreno", pases: 1, acompanantes: [] },  
+{ nombre: "Luis Garcia", pases: 1, acompanantes: [] },  
+{ nombre: "Adriana Burga", pases: 1, acompanantes: [] },  
+{ nombre: "Emely Mantilla", pases: 1, acompanantes: [] },  
+{ nombre: "Pamela Solis", pases: 1, acompanantes: [] },  
+{ nombre: "Ricardo Sifuentes", pases: 1, acompanantes: [] }, 
+  
 { nombre: "Henry Monzón", pases: 2, acompanantes: ["Diana Toma"] },
 { nombre: "Stephanie Monzón", pases: 2, acompanantes: ["Balbina Adrianzen"] },
 { nombre: "Josselyn Ternero", pases: 2, acompanantes: ["Esmeralda Monzón"] },
