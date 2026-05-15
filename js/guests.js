@@ -9,6 +9,7 @@ const invitados = [
 { nombre: "Emely Mantilla", pases: 1, acompanantes: [] },  
 { nombre: "Pamela Solis", pases: 1, acompanantes: [] },  
 { nombre: "Jonathan Medina", pases: 1, acompanantes: [] },  
+{ nombre: "Jhunior Huaman", pases: 1, acompanantes: [] },  
   
 { nombre: "Henry Monzón", pases: 2, acompanantes: ["Diana Toma"] },
 { nombre: "Stephanie Monzón", pases: 2, acompanantes: ["Balbina Adrianzen"] },
